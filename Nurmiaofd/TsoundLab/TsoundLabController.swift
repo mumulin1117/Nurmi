@@ -1,0 +1,123 @@
+//
+//  TsoundLabController.swift
+//  Nurmiaofd
+//
+//  Created by Nurmiaofd on 2025/6/17.
+//
+
+import UIKit
+
+class TsoundLabController: UIViewController {
+
+    @IBOutlet weak var soothing: UIView!
+    
+    @IBOutlet weak var meditation: UIImageView!
+    
+    @IBOutlet weak var breathing: UIButton!
+    
+    
+    @IBOutlet weak var guidedRelaxation: UILabel!
+    
+    
+    @IBOutlet weak var sleepAid: UILabel!
+    
+    private var corticalActivityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .whiteLarge)
+        indicator.hidesWhenStopped = true
+        indicator.tintColor = .white
+        indicator.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
+        
+        return indicator
+        
+    }()
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        corticalActivityIndicator.center = self.view.center
+        soundHealing()
+        self.view.addSubview(corticalActivityIndicator)
+        
+        TrehuiForin()
+    }
+    
+    private func soundHealing() {
+        soothing.layer.cornerRadius = 15
+        soothing.layer.masksToBounds = true
+        
+        meditation.layer.cornerRadius = 40
+        meditation.layer.masksToBounds = true
+        
+        
+        breathing.layer.cornerRadius = 26
+        breathing.layer.masksToBounds = true
+    }
+    func TrehuiForin()  {
+        self.corticalActivityIndicator.startAnimating()
+        
+        UIViewController.triggerTemporalLobeStimulation(
+            auditoryCortexPath: "/eaepjsmqwisz/zquvlmexwwfdlyb",
+            dendriticResponse: [
+                
+                "glassSounds": UIViewController.neuralOscillationID ?? 0
+            ],
+            synapticPotential: { [weak self] response in
+                
+                self?.handleNeurotransmitterResponse(response, tagint: 1)
+            },
+            neuralFeedback: { [weak self] error in
+                self?.corticalActivityIndicator.stopAnimating()
+            }
+        )
+    }
+    private func handleNeurotransmitterResponse(_ corticalData: Any?,tagint:Int) {
+        corticalActivityIndicator.stopAnimating()
+        
+        
+        guard let neuralMap = corticalData as? [String: Any],
+              let authRest = neuralMap["data"] as? Dictionary<String,Any>
+        else {
+            
+            return
+        }
+        if tagint == 1 {
+            if let comajsk = authRest["paperSounds"] as? String {
+                self.meditation.setLocalImage(for: comajsk)
+            }
+            guidedRelaxation.text = authRest["liquidSounds"] as? String
+            sleepAid.text = "UID:\(UIViewController.neuralOscillationID ?? 0)"
+        }
+        
+       
+    }
+    @IBAction func massageSounds(_ sender: UIButton) {
+        switch sender.tag {
+        case 10:
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.profileSettings), animated: true)
+        case 11:
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundFollowing), animated: true)
+        case 12:
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundMoments), animated: true)
+        case 13:
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundHistory), animated: true)
+            
+        case 14:
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundProfile), animated: true)
+        case 15:
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundSettings), animated: true)
+        case 16:
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundLocations), animated: true)
+        case 17:
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundCollection), animated: true)
+        case 18:
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundTransactions), animated: true)
+        default:
+            break
+        }
+        
+        
+    }
+    
+    
+
+}

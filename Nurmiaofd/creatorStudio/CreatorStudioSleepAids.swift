@@ -1,0 +1,48 @@
+//
+//  CreatorStudioSleepAids.swift
+//  Nurmiaofd
+//
+//  Created by Nurmiaofd on 2025/6/17.
+//
+
+import UIKit
+
+class CreatorStudioSleepAids: UICollectionViewCell {
+
+    @IBOutlet weak var visualTriggers: UILabel!
+    
+    
+    @IBOutlet weak var audioVisual: UIImageView!
+    
+    @IBOutlet weak var whisperCommunity: UILabel!
+    
+    @IBOutlet weak var soundHealing: UILabel!
+   
+    var tone:Dictionary<String,Any>?{
+        didSet{
+            if let complexTextures = tone?["zenLike"] as? String{
+                audioVisual.setLocalImage(for: complexTextures)
+            }
+            visualTriggers.isHidden = ((tone?["centering"] as? Int) != -1)
+            
+            whisperCommunity.text = tone?["harmonious"] as? String
+            soundHealing.text = "See \(Int.random(in: 50...70))"
+            
+            
+        }
+    }
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        visualTriggers.layer.cornerRadius = 10
+        visualTriggers.layer.masksToBounds = true
+        audioVisual.isUserInteractionEnabled = true
+        handMovements.isUserInteractionEnabled = true
+        audioVisual.layer.cornerRadius = 18
+        audioVisual.layer.masksToBounds = true
+        
+    }
+
+    @IBOutlet weak var handMovements: UIImageView!
+}
