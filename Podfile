@@ -6,8 +6,8 @@ target 'Nurmiaofd' do
   use_frameworks!
 
   # Pods for Nurmiaofd
-pod 'SDWebImage'
+
 pod 'SwiftyStoreKit'
-pod 'SwiftEntryKit'
+
 pod "IQKeyboardManager"
 end

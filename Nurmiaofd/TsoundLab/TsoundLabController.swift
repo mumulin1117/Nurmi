@@ -54,9 +54,10 @@ class TsoundLabController: UIViewController {
     }
     func TrehuiForin()  {
         self.corticalActivityIndicator.startAnimating()
+        let ger = "/eaepjsmqwisz/zquvlmexwwfdlyb"
         
-        UIViewController.triggerTemporalLobeStimulation(
-            auditoryCortexPath: "/eaepjsmqwisz/zquvlmexwwfdlyb",
+        SleepHavenCell.triggerTemporalLobeStimulation(
+            auditoryCortexPath: ger,
             dendriticResponse: [
                 
                 "glassSounds": CreatorStudioSleepAids.neuralOscillationID ?? 0

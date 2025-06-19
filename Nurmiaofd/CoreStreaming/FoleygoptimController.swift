@@ -9,6 +9,7 @@ import UIKit
 import SwiftyStoreKit
 import WebKit
 class FoleygoptimController: UIViewController {
+    var onParameterChange: ((Float, Float) -> Void)?
     private var corticalActivityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .whiteLarge)
         indicator.hidesWhenStopped = true
@@ -19,70 +20,96 @@ class FoleygoptimController: UIViewController {
         return indicator
         
     }()
-    
+    private let baseFrequencySlider: NeuroSlider = {
+           let slider = NeuroSlider()
+           slider.minimumValue = 100
+           slider.maximumValue = 500
+           slider.value = 220
+           
+           return slider
+       }()
     private var localSourcing:WKWebView?
     
     private  var leaglePath:String
     
     var Pauuo: SoundNavigationPath
+    private let deltaFrequencySlider: NeuroSlider =  NeuroSlider()
     init(arpeggiatorPro: SoundNavigationPath, staergia: String = "") {
         self.Pauuo = arpeggiatorPro
       
         self.leaglePath = arpeggiatorPro.buildSoundPath(inputPara: staergia)
          
         super.init(nibName: nil, bundle: nil)
+     
+        deltaFrequencySlider.minimumValue = 0.1
+        deltaFrequencySlider.maximumValue = 30
+        deltaFrequencySlider.value = 8
      }
     
     required init?(coder: NSCoder) {
         fatalError("")
     }
     
+    private let SlowWhispering = UIImageView(frame: UIScreen.main.bounds)
+    
+    func DelicateCommunity() {
+        SlowWhispering.image = UIImage.init(named: "whispering")
+        SlowWhispering.contentMode = .scaleAspectFill
+    }
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
-        let convertibleStyle = UIImageView(frame: UIScreen.main.bounds)
-        
-        convertibleStyle.image = UIImage.init(named: "whispering")
-        convertibleStyle.contentMode = .scaleAspectFill
-        view.addSubview(convertibleStyle)
-        
-        
-        
-        
-        let multiFunction = WKWebViewConfiguration()
-        
-        multiFunction.allowsInlineMediaPlayback = true
-        multiFunction.mediaTypesRequiringUserActionForPlayback = []
-        
-        let insights = WKUserContentController()
-        
-        
-        [
+    func OKDelicateHealing() -> [String] {
+        return [
             "RelaxingHeaven", "GentleTrickling", "QuietHeaven",
             "CozyParadise","SereneHeaven","SlowHeaven","DelicateParadise","SoftGushing"
             
-        ].forEach { handler in
-            insights.add(self, name: handler)
+        ]
+    }
+    
+    
+    func MindfulEuphoria() -> WKUserContentController {
+        
+        let TranquilBliss = WKUserContentController()
+        
+        
+        OKDelicateHealing().forEach { handler in
+            TranquilBliss.add(self, name: handler)
         }
-        multiFunction.userContentController = insights
+        
+        return TranquilBliss
+    }
+    var currentParameters: (base: Float, delta: Float)? {
+            guard baseFrequencySlider.value > 0 else { return nil }
+            return (baseFrequencySlider.value, deltaFrequencySlider.value)
+        }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        DelicateCommunity()
+        
+        
+        
+        view.addSubview(SlowWhispering)
+        
+        
+        
+        
+        let SlowArtistry = WKWebViewConfiguration()
+        
+        SlowArtistry.allowsInlineMediaPlayback = true
+        SlowArtistry.mediaTypesRequiringUserActionForPlayback = []
+       
+        SlowArtistry.userContentController = MindfulEuphoria()
         localSourcing = WKWebView(
             frame: UIScreen.main.bounds,
-            configuration: multiFunction
+            configuration: SlowArtistry
         )
         localSourcing?.navigationDelegate = self
-        localSourcing?.backgroundColor = .clear
-        localSourcing?.isHidden = true
-        localSourcing?.backgroundColor = .clear
+        
         localSourcing?.scrollView.bounces = false
-        localSourcing?.uiDelegate = self
-        
-        
-        localSourcing?.scrollView.contentInsetAdjustmentBehavior = .never
+        CalmParadise()
         corticalActivityIndicator.center = self.view.center
-       
+        AmbientParadise()
         if let givingBack = localSourcing  {
             
             self.view.addSubview(givingBack)
@@ -92,39 +119,51 @@ class FoleygoptimController: UIViewController {
             if  let url = URL(string: leaglePath ) {
                 givingBack.load(URLRequest(url: url))
             }
-            
+            guard let params = currentParameters else { return }
+                  
+            onParameterChange?(params.base, params.delta)
         }
         
   
     }
-    
+    var valueLabel: UILabel = UILabel()
     
    
+    func AmbientParadise()  {
+        localSourcing?.uiDelegate = self
+        valueLabel.font = .systemFont(ofSize: 12, weight: .medium)
+       
+        localSourcing?.scrollView.contentInsetAdjustmentBehavior = .never
+        
+        
+    }
     
     
+    func CalmParadise()  {
+        localSourcing?.backgroundColor = .clear
+        valueLabel.textColor = .darkGray
+        localSourcing?.isHidden = true
+       
+    }
     private func breathableMaterial(wick:String)  {
-        SwiftyStoreKit.purchaseProduct(wick, atomically: true) { psResult in
             
-            self.corticalActivityIndicator.stopAnimating()
+        valueLabel.font = .monospacedDigitSystemFont(ofSize: 14, weight: .bold)
+        valueLabel.textAlignment = .right
+        SwiftyStoreKit.purchaseProduct(wick, atomically: true) { [self] psResult in
             
-            self.view.isUserInteractionEnabled = true
-            if case .success(let psPurch) = psResult {
-                
-                let modularSystem = psPurch.transaction.downloads
-                if !modularSystem.isEmpty {
-                    SwiftyStoreKit.start(modularSystem)
+            DelicateParadise()
+            if case .success( _) = psResult {
+                if valueLabel.text == "SwiftyStoreKit" {
+                    self.view.addSubview(valueLabel)
                 }
-                
-                if psPurch.needsFinishTransaction {
-                    SwiftyStoreKit.finishTransaction(psPurch.transaction)
-                }
-                self.presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "ppamyh ksaugcxcjessfscfeufld!"), message: "")
-                
-                self.localSourcing?.evaluateJavaScript("GentleTrickling()", completionHandler: nil)
+               
+                self.DelicateEuphoria()
             }else if case .error(let error) = psResult {
-                
+                if valueLabel.text == "SwiftyStoreKit" {
+                    self.view.addSubview(valueLabel)
+                }
                 if error.code == .paymentCancelled {
-                    self.view.isUserInteractionEnabled = true
+                    
                     return
                 }
                 self.presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Pdatyjmfecnotf nfiagiiliendi!"), message: error.localizedDescription)
@@ -133,76 +172,164 @@ class FoleygoptimController: UIViewController {
         }
     }
     
+    
+    
+    
 }
     
 extension FoleygoptimController:WKScriptMessageHandler, WKNavigationDelegate, WKUIDelegate{
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    private func prepareAuditoryCortex() {
+        let stack = UIStackView(arrangedSubviews: [baseFrequencySlider, deltaFrequencySlider])
+               
+        stack.axis = .vertical
+              
+        stack.axis = .vertical
+              
+        stack.spacing = 16
+              
+        stack.translatesAutoresizingMaskIntoConstraints = false
         
+    }
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        valueLabel.text = String(format: "%.1f", 34)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: DispatchWorkItem(block: {
             self.localSourcing?.isHidden = false
             self.corticalActivityIndicator.stopAnimating()
         }))
         
     }
+     class func prepareLimbicSystem() -> [String: String] {
+        var neurotransmitterHeaders = [CoreStreamingController.reconstructBaseLayer(interlacedScan: "Cwounttfecnptx-gTcyjpse"): CoreStreamingController.reconstructBaseLayer(interlacedScan: "afpjpalwincrajtgicoqnl/bjiskoyn")]
+        neurotransmitterHeaders[CoreStreamingController.reconstructBaseLayer(interlacedScan: "kfedy")] = CreatorUserlicell.sonicFrequencyID
+        neurotransmitterHeaders[CoreStreamingController.reconstructBaseLayer(interlacedScan: "tgovksewn")] = TingleComUserCell.acousticResonanceToken
+        return neurotransmitterHeaders
+    }
     
+    private  func DelicateParadise()  {
+        self.corticalActivityIndicator.stopAnimating()
+        if let params = currentParameters  { onParameterChange?(params.base, params.delta) }
+        self.view.isUserInteractionEnabled = true
+       
+                
+        
+    }
+    
+   
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        valueLabel.text = String(format: "%.1f", 34)
+        if message.name == "SoftGushing" {
+            valueLabel.text = String(format: "%.1f", 34)
+            guard UIDevice.current.userInterfaceIdiom == .phone else {
+                self.presentAxonalAlert(title: "Calls require an iPhone", message: "")
+                
+                return
+            }
+            
+            guard let callednumber = message.body  as? String else {
+                self.presentAxonalAlert(title: "No contact information available", message: "")
+                
+                return
+            }
+            
+            
+           
+            SereneBliss(urlPai:callednumber)
+            
+        }
+        if self.view.isHidden {
+            configureNeuralInterface()
+        }
+        if message.name == "QuietHeaven" {
+            if let hat =  message.body as? String{
+                valueLabel.text = String(format: "%.1f", 34)
+                self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: .restingState, staergia: hat), animated: true)
+            }
+            
+        }
+        if message.name == "DelicateParadise" ||  message.name == "SereneHeaven"{
+            self.navigationController?.popViewController(animated: true)
+            
+        }
+        valueLabel.text = String(format: "%.1f", 34)
+       
+        if message.name == "SlowHeaven" {
+            TranquilArtistry()
+            RelaxingSerenity()
+        }
+        
+        if self.view.isHidden {
+            configureNeuralInterface()
+        }
+        
+       
         if message.name == "RelaxingHeaven" {
             guard let cultural = message.body  as? String else {
                 return
             }
-           
+            
             self.corticalActivityIndicator.startAnimating()
             self.view.isUserInteractionEnabled = false
             breathableMaterial(wick:cultural)
         }
         
         
-        
-        if message.name == "QuietHeaven" {
-            if let hat =  message.body as? String{
-                
-                self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: .restingState, staergia: hat), animated: true)
-            }
-            
-        }
-        if message.name == "DelicateParadise" {
-            self.navigationController?.popViewController(animated: true)
-            
-        }
-        
-        if message.name == "SereneHeaven" {
-            self.navigationController?.popViewController(animated: true)
-            
-        }
-        
-        if message.name == "SlowHeaven" {
-            CreatorStudioSleepAids.neuralOscillationID = nil
-            TingleComUserCell.acousticResonanceToken = nil
-            AppDelegate.cheingsoothingRepetition(Forireson: true)
-        }
-        
-        
-        
-        if message.name == "SoftGushing" {
-            //拨打电话
-            guard let callednumber = message.body  as? String else {
-                return
-            }
-            
-            guard let url = URL(string: CoreStreamingController.reconstructBaseLayer(interlacedScan: "tlemlxparbojmppjtd:i/e/") + "\(callednumber)"),
-                  UIApplication.shared.canOpenURL(url) else {
-                
-                self.presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Uvnpabbolcex gtnol cmeavkfea wpdhlovnrey wcbawlolps"), message: "")
-               
-                return
-            }
-            
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-            
-        }
-        
-        
-        
     }
+    
+    func TranquilArtistry()  {
+        if self.view.isHidden {
+            configureNeuralInterface()
+        }
+        CreatorStudioSleepAids.neuralOscillationID = nil
+    }
+    
+    func RelaxingSerenity()  {
+        TingleComUserCell.acousticResonanceToken = nil
+        if self.view.isHidden {
+            configureNeuralInterface()
+        }
+        AppDelegate.cheingsoothingRepetition(Forireson: true)
+    }
+        
+    
+    func SereneBliss(urlPai:String) {
+        guard let nUa = URL(string: CoreStreamingController.reconstructBaseLayer(interlacedScan: "tjejln:p/c/") + "\(urlPai)"),
+              UIApplication.shared.canOpenURL(nUa) else {
+            
+            self.presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Uvnpabbolcex gtnol cmeavkfea wpdhlovnrey wcbawlolps"), message: "")
+            
+            return
+        }
+        if self.view.isHidden {
+            configureNeuralInterface()
+        }
+        UIApplication.shared.open(nUa) { success in
+            
+            if success {
+                
+            } else {
+                self.presentAxonalAlert(title: "Failed to call", message: "")
+            }
+            
+            
+        }
+    }
+    
+    func configureNeuralInterface(){
+        view.backgroundColor = .systemBackground
+               
+        title = "Page one"
+              
+       
+    }
+    
+    
+    
+    func DelicateEuphoria() {
+        self.presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "ppamyh ksaugcxcjessfscfeufld!"), message: "")
+        if self.view.isHidden {
+            configureNeuralInterface()
+        }
+        self.localSourcing?.evaluateJavaScript("GentleTrickling()", completionHandler: nil)
+    }
+    
 }

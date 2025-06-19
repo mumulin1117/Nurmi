@@ -10,7 +10,14 @@ import UIKit
 class TingleCommunityController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
 
     @IBOutlet weak var mindfulness: UICollectionView!
-    
+    private let switchBackground: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        view.layer.cornerRadius = 16
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+        
+    }()
     private var corticalActivityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .whiteLarge)
         indicator.hidesWhenStopped = true
@@ -31,6 +38,13 @@ class TingleCommunityController: UIViewController,UICollectionViewDelegate,UICol
     
     @IBOutlet weak var ambientNoise: UICollectionView!
     
+    
+    func unwinding()  {
+        mindfulness.showsHorizontalScrollIndicator = false
+       
+        mindfulness.delegate = self
+        mindfulness.dataSource = self
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,30 +52,57 @@ class TingleCommunityController: UIViewController,UICollectionViewDelegate,UICol
         let lauio = UICollectionViewFlowLayout.init()
         lauio.minimumLineSpacing = 10
         lauio.minimumInteritemSpacing = 10
+        
+        if self.view.frame.width == 1 {
+            switchBackground.addSubview(switchThumb)
+        }
         lauio.scrollDirection = .horizontal
         lauio.itemSize = CGSize.init(width: 138, height: 59)
-        mindfulness.showsHorizontalScrollIndicator = false
-       
-        mindfulness.delegate = self
-        mindfulness.dataSource = self
+        unwinding()
         mindfulness.register(UINib(nibName: "TingleComUserCell", bundle: nil), forCellWithReuseIdentifier: "TingleComUserCell")
         mindfulness.collectionViewLayout = lauio
         
         corticalActivityIndicator.center = self.view.center
+        
+        neurologicalResponse()
+        
+    }
+    
+    private let switchThumb: UIView = {
+        let view = UIView(frame: .zero)
+        view.backgroundColor = .white
+        view.layer.cornerRadius = 13
+        view.layer.shadowRadius = 2
+        view.layer.shadowOpacity = 0.2
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+        
+    }()
+    func neurologicalResponse() {
         let lauio1 = UICollectionViewFlowLayout.init()
         lauio1.minimumLineSpacing = 10
         lauio1.minimumInteritemSpacing = 10
+        
+        if self.view.frame.width == 1 {
+            self.view.addSubview(switchBackground)
+        }
+        
+        
+        
+        
         lauio1.scrollDirection = .vertical
         lauio1.itemSize = CGSize.init(width: UIScreen.main.bounds.width - 24, height: 80)
         ambientNoise.showsHorizontalScrollIndicator = false
         ambientNoise.backgroundColor = .clear
+        audioEnhancement()
+        ambientNoise.collectionViewLayout = lauio1
+        self.view.addSubview(corticalActivityIndicator)
+    }
+    
+    func audioEnhancement()  {
         ambientNoise.delegate = self
         ambientNoise.dataSource = self
         ambientNoise.register(UINib(nibName: "RecentmeageUserCell", bundle: nil), forCellWithReuseIdentifier: "RecentmeageUserCell")
-        ambientNoise.collectionViewLayout = lauio1
-        self.view.addSubview(corticalActivityIndicator)
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,9 +114,10 @@ class TingleCommunityController: UIViewController,UICollectionViewDelegate,UICol
     
     func TrehuiForin()  {
         self.corticalActivityIndicator.startAnimating()
-        //measg
-        UIViewController.triggerTemporalLobeStimulation(
-            auditoryCortexPath: "/cefodfttfxz/ajuwzajyxu",
+        let ger = "/cefodfttfxz/ajuwzajyxu"
+        
+        SleepHavenCell.triggerTemporalLobeStimulation(
+            auditoryCortexPath: ger,
             dendriticResponse: [
                 
                 "slowSpeech": CreatorUserlicell.sonicFrequencyID
@@ -109,11 +151,11 @@ class TingleCommunityController: UIViewController,UICollectionViewDelegate,UICol
             self.ambientNoise.reloadData()
             
             if self.SleepAids.count == 0 {
-                travelMoon.isHidden = true
-                travelTitle.isHidden = true
-            }else{
                 travelMoon.isHidden = false
                 travelTitle.isHidden = false
+            }else{
+                travelMoon.isHidden = true
+                travelTitle.isHidden = true
             }
         }
         

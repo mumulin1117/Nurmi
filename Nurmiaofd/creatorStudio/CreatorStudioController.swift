@@ -28,7 +28,7 @@ class CreatorStudioController: UIViewController,UITableViewDelegate,UITableViewD
             
             return
         }else if   trpe == 2{
-           if let tranquil = ajsiu["tingling"] as? Int //userid
+           if let tranquil = ajsiu["tingling"] as? Int
            {
                self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundProfileView, staergia: "\(tranquil)"), animated: true)
            }
@@ -69,9 +69,13 @@ class CreatorStudioController: UIViewController,UITableViewDelegate,UITableViewD
         self.view.addSubview(corticalActivityIndicator)
         
         self.corticalActivityIndicator.startAnimating()
-        //active
-        UIViewController.triggerTemporalLobeStimulation(
-            auditoryCortexPath: "/rnlqwz/ebcehacb",
+        
+        
+        
+        let minimumValu = ["/rnlqwz/ebcehacb","/nzqmfz/mytskzlnbjmprz","/qumufmz/hsxfftqwvzyirbxb"
+            ]
+        SleepHavenCell.triggerTemporalLobeStimulation(
+            auditoryCortexPath: minimumValu[0],
             dendriticResponse: [
                 
                 "predictable": CreatorUserlicell.sonicFrequencyID
@@ -84,10 +88,9 @@ class CreatorStudioController: UIViewController,UITableViewDelegate,UITableViewD
                 self?.corticalActivityIndicator.stopAnimating()
             }
         )
-        
-        //user list
-        UIViewController.triggerTemporalLobeStimulation(
-            auditoryCortexPath: "/nzqmfz/mytskzlnbjmprz",
+      
+        SleepHavenCell.triggerTemporalLobeStimulation(
+            auditoryCortexPath: minimumValu[1],
             dendriticResponse: [
                 "whispering": CreatorUserlicell.sonicFrequencyID
             ],
@@ -96,12 +99,9 @@ class CreatorStudioController: UIViewController,UITableViewDelegate,UITableViewD
                 self?.handleNeurotransmitterResponse(response, tagint: 3)
             }
         )
-        //live
-        
-        
-     
-        UIViewController.triggerTemporalLobeStimulation(
-            auditoryCortexPath: "/qumufmz/hsxfftqwvzyirbxb",
+    
+        SleepHavenCell.triggerTemporalLobeStimulation(
+            auditoryCortexPath: minimumValu[2],
             dendriticResponse: [
                 "decompression":9,
                 "sleepInducing":1,

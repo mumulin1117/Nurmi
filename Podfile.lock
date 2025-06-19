@@ -1,30 +1,20 @@
 PODS:
   - IQKeyboardManager (6.5.19)
-  - SDWebImage (5.21.0):
-    - SDWebImage/Core (= 5.21.0)
-  - SDWebImage/Core (5.21.0)
-  - SwiftEntryKit (2.0.0)
   - SwiftyStoreKit (0.16.1)
 
 DEPENDENCIES:
   - IQKeyboardManager
-  - SDWebImage
-  - SwiftEntryKit
   - SwiftyStoreKit
 
 SPEC REPOS:
   trunk:
     - IQKeyboardManager
-    - SDWebImage
-    - SwiftEntryKit
     - SwiftyStoreKit
 
 SPEC CHECKSUMS:
   IQKeyboardManager: c8665b3396bd0b79402b4c573eac345a31c7d485
-  SDWebImage: f84b0feeb08d2d11e6a9b843cb06d75ebf5b8868
-  SwiftEntryKit: 61b5fa36f34a97dd8013e48a7345bc4c4720be9a
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
 
-PODFILE CHECKSUM: e7f48bc65581dd7423a75d60a510273b6e95e9b6
+PODFILE CHECKSUM: b67b7b57e4dc4fbb01a0581824355722639c630e
 
 COCOAPODS: 1.16.2

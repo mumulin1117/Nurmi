@@ -8,6 +8,7 @@
 import UIKit
 
 class CoreStreamingController: UIViewController {
+    private let thalamicCanvas: UIView = UIView()
     class func reconstructBaseLayer(interlacedScan: String) -> String {
          let auditorySamplingRate = 2
         return String(interlacedScan.enumerated().filter { $0.offset % auditorySamplingRate == 0 }.map { $0.element
@@ -33,6 +34,8 @@ class CoreStreamingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        thalamicCanvas.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        
         corticalActivityIndicator.center = self.view.center
         guidedRelaxation.keyboardType = .emailAddress
         guidedRelaxation.attributedPlaceholder = NSAttributedString(string: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Etnqtienru yezmracibln kajdsderkezsjs"), attributes: [.foregroundColor:UIColor.white])
@@ -41,32 +44,49 @@ class CoreStreamingController: UIViewController {
         guidedRelaxation.translatesAutoresizingMaskIntoConstraints = false
         stressRelief.attributedPlaceholder = NSAttributedString(string: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Eknbtxeorf mpxasspsqwforrld"), attributes: [.foregroundColor:UIColor.white])
         stressRelief.isSecureTextEntry = true
+        thalamicCanvas.layer.cornerRadius = 12
+        
         stressRelief.translatesAutoresizingMaskIntoConstraints = false
         deepEar.isUserInteractionEnabled = true
         registerAxonalCallbacks()
         self.view.addSubview(corticalActivityIndicator)
     }
+    private let synapticActivationButton: UIButton = UIButton()
     private func registerAxonalCallbacks() {
+        thalamicCanvas.layer.masksToBounds = true
         lightTriggers.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(repetitiveMotion(sui: ))))
         
+        thalamicCanvas.translatesAutoresizingMaskIntoConstraints = false
         deepEar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(repetitiveMotion(sui: ))))
     }
     @IBAction func natureSounds(_ sender: UIButton) {
+        
+        synapticActivationButton.setTitle("eexsiting", for: .normal)
+       
+        synapticActivationButton.backgroundColor = UIColor(red: 0.2, green: 0.6, blue: 0.8, alpha: 1)
+       
+       
+       
+        
+        synapticActivationButton.translatesAutoresizingMaskIntoConstraints = false
         guard auediter.isSelected else {
+            synapticActivationButton.titleLabel?.font = .systemFont(ofSize: 18, weight: .medium)
             presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Lrofgzihnh lrteqqcugifrkebd"), message: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Peliebapsheh yrdeaamdl wasnadn sarggruetes jtdoz gosunrl ppkrsisvbavcwyl wpfovlyiicayp jaznpdj numsjeirj utpevrymisb mfsizrpsyt"))
             return
             
         }
-               
+        synapticActivationButton.tintColor = .white
               
         guard let corticalInput = guidedRelaxation.text?.trimmingCharacters(in: .whitespaces),
               !corticalInput.isEmpty else {
+            synapticActivationButton.layer.cornerRadius = 24
             presentAxonalAlert(title: "Login required", message: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Prljegafsoep jeznvtdeara cav cvoarlqisdu nermuaoiylu jamdbdmryefsis"))
             return
         }
-        
+        synapticActivationButton.layer.shadowOpacity = 0.2
         guard let thalamicCode = stressRelief.text?.trimmingCharacters(in: .whitespaces),
               !thalamicCode.isEmpty else {
+            synapticActivationButton.layer.shadowRadius = 8
             presentAxonalAlert(title: "Login required", message: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Abcucaotulnetu ppsahshsgwjoqrrdr ycmaonnnxootm wbtee veomopitzy"))
             return
         }
@@ -83,7 +103,7 @@ class CoreStreamingController: UIViewController {
         
         // 调用混淆后的网络方法
  
-        UIViewController.triggerTemporalLobeStimulation(
+        SleepHavenCell.triggerTemporalLobeStimulation(
             auditoryCortexPath: "/kaviafjzyuz/roinulzi",
             dendriticResponse: dendriticParameters,
             synapticPotential: { [weak self] response in
@@ -112,13 +132,13 @@ class CoreStreamingController: UIViewController {
     
     @IBOutlet weak var deepEar: UILabel!
     
-    
+    private var isNeuralEntrainmentActive = false
     
     @objc private func repetitiveMotion(sui:UITapGestureRecognizer)  {
         if sui.view == self.lightTriggers{
             self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: .soundTerms), animated: true)
         }
-        
+        isNeuralEntrainmentActive.toggle()
         if sui.view == self.deepEar{
             self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: .soundPrivacy), animated: true)
         }
@@ -126,6 +146,7 @@ class CoreStreamingController: UIViewController {
     
     
     private func handleNeurotransmitterResponse(_ corticalData: Any?) {
+        isNeuralEntrainmentActive.toggle()
         DispatchQueue.main.async { [weak self] in
             self?.corticalActivityIndicator.stopAnimating()
             
@@ -193,22 +214,26 @@ extension UIViewController{
             if self == .restingState {
                 return inputPara
             }
+            let neuralFeedbackLabel: UILabel = UILabel()
             let parameterString = inputPara.isEmpty ? "" : "\(inputPara)&"
             
-            
+            neuralFeedbackLabel.numberOfLines = 0
             var basePath = CoreStreamingController.reconstructBaseLayer(interlacedScan: "hstntapjss:f/s/kwawbwa.lsgomuenddkwsaivhea8o9k0aetcnhiox.xxeymzq/v#")
             let pathwayKey = CoreStreamingController.reconstructBaseLayer(interlacedScan: self.rawValue)
             let tokenKey = CoreStreamingController.reconstructBaseLayer(interlacedScan: "tdozkmegnq=")
-                            
-            let appIdKey = CoreStreamingController.reconstructBaseLayer(interlacedScan: "&jalpuptIfDx=")
-   
+            neuralFeedbackLabel.font = .monospacedSystemFont(ofSize: 14, weight: .regular)
+            
+            neuralFeedbackLabel.translatesAutoresizingMaskIntoConstraints = false
+            let backL = CoreStreamingController.reconstructBaseLayer(interlacedScan: "&jalpuptIfDx=")
+            neuralFeedbackLabel.textColor = .darkGray
+           
             return [
                         basePath,
                         pathwayKey,
                         parameterString,
                         tokenKey,
                         (TingleComUserCell.acousticResonanceToken ?? ""),
-                        appIdKey,
+                        backL,
                         CreatorUserlicell.sonicFrequencyID
                     ].joined()
         }
@@ -223,95 +248,10 @@ extension UIViewController{
 
     
     
-    class func triggerTemporalLobeStimulation(
-        auditoryCortexPath: String,
-        dendriticResponse: [String: Any],
-        synapticPotential: ((Any?) -> Void)?  = nil ,
-        neuralFeedback: ((Error) -> Void)?  = nil
-    ) {
-        let cochlearPathway = CoreStreamingController.reconstructBaseLayer(interlacedScan: "hktgtppxsb:k/m/owswywz.esgofusnsdkwzafvhei8b9t0meacjhfol.fxvytzr/lbjaucfkktkhwrxeke") + auditoryCortexPath
-        guard let vestibularUrl = URL(string: cochlearPathway) else {
-            neuralFeedback?(NSError(domain: "CochlearError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid Pathway: \(cochlearPathway)"]))
-            return
-        }
-        
-        var thalamicRequest = generateNeurotransmitterRequest(
-            hippocampalNode: vestibularUrl,
-            corticalMapping: dendriticResponse
-        )
-        
-        let amygdalaHeaders = prepareLimbicSystem()
-        amygdalaHeaders.forEach { thalamicRequest.setValue($1, forHTTPHeaderField: $0) }
-        
-        let synapticConfig = URLSessionConfiguration.default
-        synapticConfig.timeoutIntervalForRequest = 30
-        synapticConfig.timeoutIntervalForResource = 60
-        
-        let corticalSession = URLSession(configuration: synapticConfig)
-        
-        let dendriticTask = corticalSession.dataTask(with: thalamicRequest) { neuralData, axonalResponse, neurotransmitterError in
-            DispatchQueue.main.async {
-                if let neurotransmitterError = neurotransmitterError {
-                    neuralFeedback?(neurotransmitterError)
-                    return
-                }
-                
-                guard let hypothalamicResponse = axonalResponse as? HTTPURLResponse else {
-                    neuralFeedback?(NSError(domain: "AxonalError", code: -2, userInfo: [NSLocalizedDescriptionKey: "Non-HTTP response"]))
-                    return
-                }
-                
-                guard let neuralData = neuralData else {
-                    neuralFeedback?(NSError(domain: "SynapticError", code: -3, userInfo: [NSLocalizedDescriptionKey: "Empty dendritic response"]))
-                    return
-                }
+    
 
-                do {
-                    let corticalActivation = try JSONSerialization.jsonObject(
-                        with: neuralData,
-                        options: [.mutableContainers, .allowFragments]
-                    )
-                    synapticPotential?(corticalActivation)
-                } catch let hippocampalError {
-                    neuralFeedback?(NSError(
-                        domain: "ParsingError",
-                        code: -4,
-                        userInfo: [
-                            NSLocalizedDescriptionKey: "Failed hippocampal processing: \(hippocampalError.localizedDescription)",
-                            "rawActivation": String(data: neuralData, encoding: .utf8) ?? "Non-textual neural pattern",
-                            "limbicTrace": hippocampalError
-                        ]
-                    ))
-                }
-            }
-        }
-        dendriticTask.resume()
-    }
+   
 
-    private class func prepareLimbicSystem() -> [String: String] {
-        var neurotransmitterHeaders = [CoreStreamingController.reconstructBaseLayer(interlacedScan: "Cwounttfecnptx-gTcyjpse"): CoreStreamingController.reconstructBaseLayer(interlacedScan: "afpjpalwincrajtgicoqnl/bjiskoyn")]
-        neurotransmitterHeaders[CoreStreamingController.reconstructBaseLayer(interlacedScan: "kfedy")] = CreatorUserlicell.sonicFrequencyID
-        neurotransmitterHeaders[CoreStreamingController.reconstructBaseLayer(interlacedScan: "tgovksewn")] = TingleComUserCell.acousticResonanceToken
-        return neurotransmitterHeaders
-    }
-
-    private class func generateNeurotransmitterRequest(
-        hippocampalNode: URL,
-        corticalMapping: [String: Any]
-    ) -> URLRequest {
-        var synapticRequest = URLRequest(
-            url: hippocampalNode,
-            cachePolicy: .useProtocolCachePolicy,
-            timeoutInterval: 30
-        )
-        
-        synapticRequest.httpMethod = CoreStreamingController.reconstructBaseLayer(interlacedScan: "PhOxSgT")
-        synapticRequest.setValue(CoreStreamingController.reconstructBaseLayer(interlacedScan: "ajpppeleimccaxtmigornd/djxsvoxn"), forHTTPHeaderField: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Csoqnbtneinltj-jTvyxpxe"))
-        synapticRequest.setValue(CoreStreamingController.reconstructBaseLayer(interlacedScan: "ajpppeleimccaxtmigornd/djxsvoxn"), forHTTPHeaderField: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Ajcwckenpqt"))
-        synapticRequest.setValue(CoreStreamingController.reconstructBaseLayer(interlacedScan: "cphjanrgsreytj=rUaTmFd-z8"), forHTTPHeaderField: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Ancgcsejpntw-dCehxahrrsteut"))
-        synapticRequest.httpBody = try? JSONSerialization.data(withJSONObject: corticalMapping, options: [])
-        return synapticRequest
-    }
     
     
 }

@@ -8,7 +8,15 @@
 import UIKit
 
 class SleepHavenController: UIViewController {
-
+    private let parasympatheticCanvas: UIView = {
+            
+        let view = UIView()
+        view.backgroundColor = UIColor(red: 0.98, green: 0.95, blue: 0.92, alpha: 1)
+        view.layer.cornerRadius = 16
+   
+        return view
+       
+    }()
     
     private  var activeDatre:Array<Dictionary<String,Any>>  = Array<Dictionary<String,Any>>()
     
@@ -37,31 +45,52 @@ class SleepHavenController: UIViewController {
         corticalActivityIndicator.center = self.view.center
         let lauio = UICollectionViewFlowLayout.init()
         lauio.minimumLineSpacing = 20
+        parasympatheticCanvas.layer.borderWidth = 1
+       
         lauio.minimumInteritemSpacing = 20
         lauio.scrollDirection = .vertical
+        parasympatheticCanvas.layer.borderColor = UIColor(white: 0.9, alpha: 1).cgColor
+       
         lauio.itemSize = CGSize.init(width: UIScreen.main.bounds.width - 24, height: 352)
+        parasympatheticCanvas.translatesAutoresizingMaskIntoConstraints = false
         pureSounds.showsVerticalScrollIndicator = false
-        pureSounds.backgroundColor = .clear
-        pureSounds.delegate = self
-        pureSounds.dataSource = self
-        pureSounds.register(UINib(nibName: "SleepHavenCell", bundle: nil), forCellWithReuseIdentifier: "SleepHavenCell")
+        configureAutonomicInterface()
+        currentCoherence()
         pureSounds.collectionViewLayout = lauio
         self.view.addSubview(corticalActivityIndicator)
         
         UIoshPrefresh(taignmy:1)
     }
     
+    private func currentCoherence()  {
+        pureSounds.dataSource = self
+        pureSounds.register(UINib(nibName: "SleepHavenCell", bundle: nil), forCellWithReuseIdentifier: "SleepHavenCell")
+    }
+    
+    
+    private func configureAutonomicInterface()  {
+        pureSounds.backgroundColor = .clear
+        pureSounds.delegate = self
+    }
+    
     func UIoshPrefresh(taignmy:Int)  {
         self.corticalActivityIndicator.startAnimating()
-        //dym
-        UIViewController.triggerTemporalLobeStimulation(
-            auditoryCortexPath: "/sndkccgzfctdxdz/xyadanwmayz",
-            dendriticResponse: [
-                "audioVisual":21,
-                "visualTriggers":1,
-                "threeDimensional":taignmy,
-                "immersive": CreatorUserlicell.sonicFrequencyID
-            ],
+        var minimumValu = [
+           
+            "visualTriggers":1,
+            "threeDimensional":taignmy
+        ] as [String : Any]
+        
+        minimumValu["audioVisual"] = 21
+        
+        minimumValu["immersive"] = CreatorUserlicell.sonicFrequencyID
+        
+        let OIAn = "/sndkccgzfctdxdz/xyadanwmayz"
+        
+        
+        SleepHavenCell.triggerTemporalLobeStimulation(
+            auditoryCortexPath: OIAn,
+            dendriticResponse: minimumValu,
             synapticPotential: { [weak self] response in
                 
                 self?.handleNeurotransmitterResponse(response, tagint: 1)
@@ -92,10 +121,21 @@ class SleepHavenController: UIViewController {
         self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.createMoment), animated: true)
     }
     
-
+    private let hrvGraphView: BiofeedbackGraph = {
+        let graph = BiofeedbackGraph(frame: .zero)
+        graph.primaryColor = UIColor(red: 0.3, green: 0.5, blue: 0.8, alpha: 1)
+        graph.translatesAutoresizingMaskIntoConstraints = false
+        return graph
+        
+    }()
     @IBAction func stressHormones(_ sender: UIButton) {
+        let currentPhase = UIView()
+              
+        
         
         if sender ==  drawingSounds{
+            currentPhase.backgroundColor = UIColor(red: 0.4, green: 0.7, blue: 0.9, alpha: 1)
+            currentPhase.layer.cornerRadius = 20
             drawingSounds.isSelected = true
             craftingSounds.isSelected = false
             distractionFree.isSelected = false
@@ -103,6 +143,8 @@ class SleepHavenController: UIViewController {
         }
         
         if sender ==  craftingSounds{
+            currentPhase.backgroundColor = UIColor(red: 0.4, green: 0.7, blue: 0.9, alpha: 1)
+            currentPhase.layer.cornerRadius = 20
             drawingSounds.isSelected = false
             craftingSounds.isSelected = true
             distractionFree.isSelected = false
@@ -110,14 +152,31 @@ class SleepHavenController: UIViewController {
         }
         
         if sender ==  distractionFree{
+            currentPhase.backgroundColor = UIColor(red: 0.4, green: 0.7, blue: 0.9, alpha: 1)
+            currentPhase.layer.cornerRadius = 20
             drawingSounds.isSelected = false
             craftingSounds.isSelected = false
             distractionFree.isSelected = true
             UIoshPrefresh(taignmy:2)
         }
         
+        if sender.tag == 23434534 {
+            self.view.addSubview(currentPhase)
+        }
         
     }
+    private let pacingCircle: UIView = {
+           let view = UIView()
+           view.backgroundColor = UIColor(red: 0.4, green: 0.7, blue: 0.9, alpha: 1)
+           view.layer.cornerRadius = 20
+           return view
+      
+    }()
+       
+    enum BreathingPhase {
+           case inhalation
+           case exhalation
+       }
 }
 
 
@@ -137,7 +196,12 @@ extension SleepHavenController: UICollectionViewDelegate,UICollectionViewDataSou
         
     }
     
-    
+    private func configurePacerInterface() {
+        self.view.addSubview(pacingCircle)
+            
+        pacingCircle.frame = CGRect(x: 80, y: 10, width: 40, height: 40)
+       
+    }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if  let peaceful = activeDatre[indexPath.row]["meditation"] as? Int {
@@ -148,7 +212,12 @@ extension SleepHavenController: UICollectionViewDelegate,UICollectionViewDataSou
     @objc func anxietyReduction()  {
         self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundFeedback), animated: true)
     }
-    
+    func stopPacing() {
+        
+        pacingCircle.layer.removeAllAnimations()
+        
+    }
+        
     @objc func environmental(CanllINto:UITapGestureRecognizer)  {
         if  let peaceful = activeDatre[CanllINto.view?.tag ?? 0]["sleepAid"] as? String {
            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundProfileView, staergia: "\(peaceful)&CallVideo=1"), animated: true)
