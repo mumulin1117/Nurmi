@@ -219,9 +219,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Nurmiaofd/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Nurmi;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Required to take photos for your profile picture and to capture relaxing scenes for sharing";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Needed to record ambient sounds for creating calming audio content";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allows selecting photos for your profile and sharing relaxing imagery with the community";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -257,9 +257,9 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Nurmiaofd/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Nurmi;
-				INFOPLIST_KEY_NSCameraUsageDescription = "";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Required to take photos for your profile picture and to capture relaxing scenes for sharing";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Needed to record ambient sounds for creating calming audio content";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Allows selecting photos for your profile and sharing relaxing imagery with the community";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = Main.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
