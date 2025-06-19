@@ -59,7 +59,7 @@ class TsoundLabController: UIViewController {
             auditoryCortexPath: "/eaepjsmqwisz/zquvlmexwwfdlyb",
             dendriticResponse: [
                 
-                "glassSounds": UIViewController.neuralOscillationID ?? 0
+                "glassSounds": CreatorStudioSleepAids.neuralOscillationID ?? 0
             ],
             synapticPotential: { [weak self] response in
                 
@@ -75,7 +75,7 @@ class TsoundLabController: UIViewController {
         
         
         guard let neuralMap = corticalData as? [String: Any],
-              let authRest = neuralMap["data"] as? Dictionary<String,Any>
+              let authRest = neuralMap[CoreStreamingController.reconstructBaseLayer(interlacedScan: "djamtoa")] as? Dictionary<String,Any>
         else {
             
             return
@@ -85,7 +85,7 @@ class TsoundLabController: UIViewController {
                 self.meditation.setLocalImage(for: comajsk)
             }
             guidedRelaxation.text = authRest["liquidSounds"] as? String
-            sleepAid.text = "UID:\(UIViewController.neuralOscillationID ?? 0)"
+            sleepAid.text = "UjIwDu:" + "\(CreatorStudioSleepAids.neuralOscillationID ?? 0)"
         }
         
        

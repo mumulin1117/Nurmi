@@ -190,13 +190,13 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no recent message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiP-Hd-CS0">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="no recent message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiP-Hd-CS0">
                                 <rect key="frame" x="110.33333333333333" y="485.66666666666669" width="154.33333333333337" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="0.44932504251700678" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moonHZan" translatesAutoresizingMaskIntoConstraints="NO" id="33Q-kM-YxL">
+                            <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moonHZan" translatesAutoresizingMaskIntoConstraints="NO" id="33Q-kM-YxL">
                                 <rect key="frame" x="139" y="359" width="97" height="94"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="97" id="RcD-ck-tfz"/>
@@ -232,6 +232,8 @@
                     <connections>
                         <outlet property="ambientNoise" destination="Wwp-LQ-Fxd" id="97x-dS-A2h"/>
                         <outlet property="mindfulness" destination="4Y6-M0-Vr7" id="fT0-kp-eG4"/>
+                        <outlet property="travelMoon" destination="33Q-kM-YxL" id="ocU-4Q-ZGT"/>
+                        <outlet property="travelTitle" destination="aiP-Hd-CS0" id="hMo-wN-LWM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IS1-yj-WtA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

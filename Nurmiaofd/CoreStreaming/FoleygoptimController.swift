@@ -28,7 +28,7 @@ class FoleygoptimController: UIViewController {
     init(arpeggiatorPro: SoundNavigationPath, staergia: String = "") {
         self.Pauuo = arpeggiatorPro
       
-        self.leaglePath = arpeggiatorPro.buildSoundPath(parameters: staergia)
+        self.leaglePath = arpeggiatorPro.buildSoundPath(inputPara: staergia)
          
         super.init(nibName: nil, bundle: nil)
      }
@@ -118,7 +118,7 @@ class FoleygoptimController: UIViewController {
                 if psPurch.needsFinishTransaction {
                     SwiftyStoreKit.finishTransaction(psPurch.transaction)
                 }
-                self.presentAxonalAlert(title: "pay successful!", message: "")
+                self.presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "ppamyh ksaugcxcjessfscfeufld!"), message: "")
                 
                 self.localSourcing?.evaluateJavaScript("GentleTrickling()", completionHandler: nil)
             }else if case .error(let error) = psResult {
@@ -127,7 +127,7 @@ class FoleygoptimController: UIViewController {
                     self.view.isUserInteractionEnabled = true
                     return
                 }
-                self.presentAxonalAlert(title: "pay failed!", message: error.localizedDescription)
+                self.presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Pdatyjmfecnotf nfiagiiliendi!"), message: error.localizedDescription)
                
             }
         }
@@ -162,7 +162,7 @@ extension FoleygoptimController:WKScriptMessageHandler, WKNavigationDelegate, WK
         if message.name == "QuietHeaven" {
             if let hat =  message.body as? String{
                 
-                self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: .emptyPath, staergia: hat), animated: true)
+                self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: .restingState, staergia: hat), animated: true)
             }
             
         }
@@ -177,8 +177,8 @@ extension FoleygoptimController:WKScriptMessageHandler, WKNavigationDelegate, WK
         }
         
         if message.name == "SlowHeaven" {
-            UIViewController.neuralOscillationID = nil
-            UIViewController.acousticResonanceToken = nil
+            CreatorStudioSleepAids.neuralOscillationID = nil
+            TingleComUserCell.acousticResonanceToken = nil
             AppDelegate.cheingsoothingRepetition(Forireson: true)
         }
         
@@ -190,10 +190,10 @@ extension FoleygoptimController:WKScriptMessageHandler, WKNavigationDelegate, WK
                 return
             }
             
-            guard let url = URL(string: "telprompt://\(callednumber)"),
+            guard let url = URL(string: CoreStreamingController.reconstructBaseLayer(interlacedScan: "tlemlxparbojmppjtd:i/e/") + "\(callednumber)"),
                   UIApplication.shared.canOpenURL(url) else {
                 
-                self.presentAxonalAlert(title: "Unable to make phone calls", message: "")
+                self.presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Uvnpabbolcex gtnol cmeavkfea wpdhlovnrey wcbawlolps"), message: "")
                
                 return
             }

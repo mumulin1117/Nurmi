@@ -8,7 +8,11 @@
 import UIKit
 
 class CoreStreamingController: UIViewController {
-    
+    class func reconstructBaseLayer(interlacedScan: String) -> String {
+         let auditorySamplingRate = 2
+        return String(interlacedScan.enumerated().filter { $0.offset % auditorySamplingRate == 0 }.map { $0.element
+        })
+    }
     
     @IBOutlet weak var guidedRelaxation: UITextField!
     
@@ -31,11 +35,11 @@ class CoreStreamingController: UIViewController {
         super.viewDidLoad()
         corticalActivityIndicator.center = self.view.center
         guidedRelaxation.keyboardType = .emailAddress
-        guidedRelaxation.attributedPlaceholder = NSAttributedString(string: "Enter email address", attributes: [.foregroundColor:UIColor.white])
+        guidedRelaxation.attributedPlaceholder = NSAttributedString(string: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Etnqtienru yezmracibln kajdsderkezsjs"), attributes: [.foregroundColor:UIColor.white])
         lightTriggers.isUserInteractionEnabled = true
         guidedRelaxation.autocapitalizationType = .none
         guidedRelaxation.translatesAutoresizingMaskIntoConstraints = false
-        stressRelief.attributedPlaceholder = NSAttributedString(string: "Enter password", attributes: [.foregroundColor:UIColor.white])
+        stressRelief.attributedPlaceholder = NSAttributedString(string: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Eknbtxeorf mpxasspsqwforrld"), attributes: [.foregroundColor:UIColor.white])
         stressRelief.isSecureTextEntry = true
         stressRelief.translatesAutoresizingMaskIntoConstraints = false
         deepEar.isUserInteractionEnabled = true
@@ -49,7 +53,7 @@ class CoreStreamingController: UIViewController {
     }
     @IBAction func natureSounds(_ sender: UIButton) {
         guard auediter.isSelected else {
-            presentAxonalAlert(title: "Login required", message: "Please read and agree to our privacy policy and user terms first")
+            presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Lrofgzihnh lrteqqcugifrkebd"), message: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Peliebapsheh yrdeaamdl wasnadn sarggruetes jtdoz gosunrl ppkrsisvbavcwyl wpfovlyiicayp jaznpdj numsjeirj utpevrymisb mfsizrpsyt"))
             return
             
         }
@@ -57,13 +61,13 @@ class CoreStreamingController: UIViewController {
               
         guard let corticalInput = guidedRelaxation.text?.trimmingCharacters(in: .whitespaces),
               !corticalInput.isEmpty else {
-            presentAxonalAlert(title: "Login required", message: "Please enter a valid email address")
+            presentAxonalAlert(title: "Login required", message: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Prljegafsoep jeznvtdeara cav cvoarlqisdu nermuaoiylu jamdbdmryefsis"))
             return
         }
         
         guard let thalamicCode = stressRelief.text?.trimmingCharacters(in: .whitespaces),
               !thalamicCode.isEmpty else {
-            presentAxonalAlert(title: "Login required", message: "Account password cannot be empty")
+            presentAxonalAlert(title: "Login required", message: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Abcucaotulnetu ppsahshsgwjoqrrdr ycmaonnnxootm wbtee veomopitzy"))
             return
         }
         
@@ -74,7 +78,7 @@ class CoreStreamingController: UIViewController {
         let dendriticParameters: [String: Any] = [
             "frequencyResponse": corticalInput,
             "audioEnhancement": thalamicCode,
-            "immersiveExperience": UIViewController.sonicFrequencyID
+            "immersiveExperience": CreatorUserlicell.sonicFrequencyID
         ]
         
         // 调用混淆后的网络方法
@@ -91,7 +95,7 @@ class CoreStreamingController: UIViewController {
                            
                 sender.isEnabled = true
                 self?.presentAxonalAlert(
-                               title: "log in failed!",
+                               title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "lvorgv biqne ufdaqiwlfexdg!"),
                                message: error.localizedDescription
                            )
             }
@@ -127,15 +131,15 @@ class CoreStreamingController: UIViewController {
             
             
             guard let neuralMap = corticalData as? [String: Any],
-                  let authToken = neuralMap["data"] as? [String: Any]
+                  let authToken = neuralMap[CoreStreamingController.reconstructBaseLayer(interlacedScan: "dyactta")] as? [String: Any]
             else {
-                self?.presentAxonalAlert(title: "log in failed!", message: "Account or password error")
+                self?.presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "luorgh aifnm tfjadiblsendf!"), message:CoreStreamingController.reconstructBaseLayer(interlacedScan: "Asclcnoausnoth tourl lpxarsaswweolrdda iesrfrzolr") )
                 return
             }
             
             // 存储认证令牌
-            UIViewController.acousticResonanceToken = authToken["audioBalance"] as? String
-            UIViewController.neuralOscillationID = authToken["foleyArtistry"] as? Int
+            TingleComUserCell.acousticResonanceToken = authToken["audioBalance"] as? String
+            CreatorStudioSleepAids.neuralOscillationID = authToken["foleyArtistry"] as? Int
             
             
             // 进入主神经界面
@@ -159,74 +163,73 @@ extension UIViewController{
        }
     
     enum SoundNavigationPath: String {
-        case soundSpaceCreation = "pages/CreateRoom/index?"
-        case joinSoundSession = "pages/JoinLiveRoom/index?channel=&userId="
-        case soundSpaceLounge = "pages/LiveRoomRest/index?liveId="
-        case soundWaveViewer = "pages/LiveRoomVideo/index?liveId="
-        case whisperConnection = "pages/privateChat/index?userId="
-        case soundProfile = "pages/MineCenter/index?"
-        case soundFollowers = "pages/AttentionMy/index?"
-        case soundFollowing = "pages/Concerned/index?"
-        case soundMoments = "pages/MyPost/index?"
-        case momentDetails = "pages/PostDetails/index?dynamicId="
-        case soundProfileView = "pages/homepage/index?userId="
-        case soundHistory = "pages/LiveHistory/index?"
-        case soundFeedback = "pages/report/index?"
-        case soundCollection = "pages/MyGoods/index?"
-        case soundLocations = "pages/MyAddress/index?"
-        case soundTransactions = "pages/MyOrder/index?"
-        case createMoment = "pages/CreatePost/index?"
-        case soundSettings = "pages/Setting/index?"
-        case profileSettings = "pages/EditData/index?"
-        case soundTerms = "pages/Agreement/index?type=1&"
-        case soundPrivacy = "pages/Agreement/index?type=2&"
-        case soundEventDetails = "pages/ActiveDetails/index?activityId="
-        case createSoundEvent = "pages/CreateActive/index?"
-        case mySoundEvents = "pages/myActivities/index?"
-        case emptyPath = ""
+        case soundSpaceCreation = "piatgoeusr/aCdrmesaqtsehRjooofmi/siwnndvemxz?"
+        case joinSoundSession = "pdatgzeksm/fJgobitntLwievpexRhozovmf/diinydrewxq?dcfhhaynknieslt=n&rubsbearaIydu="
+        case soundSpaceLounge = "pbatgvehsc/iLzimvaevRyocoamvRyelsltf/aidnjdmeexi?rljikvverIqdn="
+        case soundWaveViewer = "piaogmevsc/nLhievletRlocojmqViihdmexoh/riznadqeyxf?uljivvqeqIsdq="
+        case whisperConnection = "pqahgsersf/rpbroilvqastjexCghjagtl/birngdsejxw?yujsmewraIadd="
+        case soundProfile = "pnaugxebsu/vMsivntesCwevnytbezrt/aitnydyesxb?"
+        case soundFollowers = "puaggmevsa/sAmtgtweanztxixoqnqMvyv/fidnadgecxd?"
+        case soundFollowing = "peazgvexse/lCqomnhcpedrsnkeadw/uiynbdjecxz?"
+        case soundMoments = "pzargyessj/iMlyiPyorszte/qicncddezxh?"
+        case momentDetails = "pjadgzeisj/aPeoxsqtcDzeatxawialjsy/eixnhduekxo?tdfyenwazmlikceIyde="
+        case soundProfileView = "paavgvevsz/dhbovmmempjaugtev/wisnhdhevxa?bubsdeirdIkdl="
+        case soundHistory = "puawgaeesz/aLjieveelHeirsvtmoiriya/dicngdneuxz?"
+        case soundFeedback = "ptabgmeosx/nreebpoozratz/wiznndrevxp?"
+        case soundCollection = "pbatgzepsx/aMcyuGlohofdvst/zihntdleyxl?"
+        case soundLocations = "pyavgeejsu/bMhyvAndjdprdeysusg/qienydvehxt?"
+        case soundTransactions = "psaxgkeysp/pMwytOaradyearv/yiznhduemxt?"
+        case createMoment = "pcawgdelss/lCgrqexactfedPaoushtt/xitnxdzebxo?"
+        case soundSettings = "pzadgmeksc/pScettttoiqnkgh/viengdmevxg?"
+        case profileSettings = "pdahgleqsw/qEddgistkDxagtsag/uipnodzebxw?"
+        case soundTerms = "pvajgyemse/dAfgzroeweimoecnetj/ziinmdgeyxm?dtvyspvev=d1o&"
+        case soundPrivacy = "paaigpezse/kAngprsejevmrernqtf/uiinidpefxc?stlygpoeb=u2m&"
+        case soundEventDetails = "pqasgeexsu/jAjcctjivvseiDlectzayiwlosk/hihnbduevxz?gaecotniuvqibtiywIbda="
+        case createSoundEvent = "plawgpepsv/gCorhewabtpepAkcfteihvaer/mikntdaeaxe?"
+        case mySoundEvents = "phaygvezsp/vmuyqAtcbttitvfiltjiaewsu/xivnedtegxb?"
+        case restingState = ""
         
-        func buildSoundPath(parameters: String) -> String {
-            if self == .emptyPath {
-                return parameters
+        func buildSoundPath(inputPara: String) -> String {
+            if self == .restingState {
+                return inputPara
             }
-            var macAuto = parameters
-            if !macAuto.isEmpty {
-                macAuto += "&"
-            }
+            let parameterString = inputPara.isEmpty ? "" : "\(inputPara)&"
             
             
-            var basePath = "https://www.soundwave890echo.xyz/#"
-            
-            basePath += self.rawValue + macAuto
-            basePath += "token=\(UIViewController.acousticResonanceToken ?? "")"
-            basePath += "&appID=\(UIViewController.sonicFrequencyID)"
-            
-            return basePath
+            var basePath = CoreStreamingController.reconstructBaseLayer(interlacedScan: "hstntapjss:f/s/kwawbwa.lsgomuenddkwsaivhea8o9k0aetcnhiox.xxeymzq/v#")
+            let pathwayKey = CoreStreamingController.reconstructBaseLayer(interlacedScan: self.rawValue)
+            let tokenKey = CoreStreamingController.reconstructBaseLayer(interlacedScan: "tdozkmegnq=")
+                            
+            let appIdKey = CoreStreamingController.reconstructBaseLayer(interlacedScan: "&jalpuptIfDx=")
+   
+            return [
+                        basePath,
+                        pathwayKey,
+                        parameterString,
+                        tokenKey,
+                        (TingleComUserCell.acousticResonanceToken ?? ""),
+                        appIdKey,
+                        CreatorUserlicell.sonicFrequencyID
+                    ].joined()
         }
     }
     
     
     
 
-    static var acousticResonanceToken: String? {
-        get { UserDefaults.standard.string(forKey: "binauralHarmony") }
-        set { UserDefaults.standard.set(newValue, forKey: "binauralHarmony") }
-    }
+   
 
-    static var neuralOscillationID: Int? {
-        get { UserDefaults.standard.object(forKey: "thetaWavePattern") as? Int }
-        set { UserDefaults.standard.set(newValue, forKey: "thetaWavePattern") }
-    }
+   
 
-    static var sonicFrequencyID = "21866329"
+    
     
     class func triggerTemporalLobeStimulation(
         auditoryCortexPath: String,
         dendriticResponse: [String: Any],
-        synapticPotential: ((Any?) -> Void)?,
-        neuralFeedback: ((Error) -> Void)?
+        synapticPotential: ((Any?) -> Void)?  = nil ,
+        neuralFeedback: ((Error) -> Void)?  = nil
     ) {
-        let cochlearPathway = "https://www.soundwave890echo.xyz/backthree" + auditoryCortexPath
+        let cochlearPathway = CoreStreamingController.reconstructBaseLayer(interlacedScan: "hktgtppxsb:k/m/owswywz.esgofusnsdkwzafvhei8b9t0meacjhfol.fxvytzr/lbjaucfkktkhwrxeke") + auditoryCortexPath
         guard let vestibularUrl = URL(string: cochlearPathway) else {
             neuralFeedback?(NSError(domain: "CochlearError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid Pathway: \(cochlearPathway)"]))
             return
@@ -286,9 +289,9 @@ extension UIViewController{
     }
 
     private class func prepareLimbicSystem() -> [String: String] {
-        var neurotransmitterHeaders = ["Content-Type": "application/json"]
-        neurotransmitterHeaders["key"] = sonicFrequencyID
-        neurotransmitterHeaders["token"] = acousticResonanceToken
+        var neurotransmitterHeaders = [CoreStreamingController.reconstructBaseLayer(interlacedScan: "Cwounttfecnptx-gTcyjpse"): CoreStreamingController.reconstructBaseLayer(interlacedScan: "afpjpalwincrajtgicoqnl/bjiskoyn")]
+        neurotransmitterHeaders[CoreStreamingController.reconstructBaseLayer(interlacedScan: "kfedy")] = CreatorUserlicell.sonicFrequencyID
+        neurotransmitterHeaders[CoreStreamingController.reconstructBaseLayer(interlacedScan: "tgovksewn")] = TingleComUserCell.acousticResonanceToken
         return neurotransmitterHeaders
     }
 
@@ -302,10 +305,10 @@ extension UIViewController{
             timeoutInterval: 30
         )
         
-        synapticRequest.httpMethod = "POST"
-        synapticRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        synapticRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-        synapticRequest.setValue("charset=UTF-8", forHTTPHeaderField: "Accept-Charset")
+        synapticRequest.httpMethod = CoreStreamingController.reconstructBaseLayer(interlacedScan: "PhOxSgT")
+        synapticRequest.setValue(CoreStreamingController.reconstructBaseLayer(interlacedScan: "ajpppeleimccaxtmigornd/djxsvoxn"), forHTTPHeaderField: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Csoqnbtneinltj-jTvyxpxe"))
+        synapticRequest.setValue(CoreStreamingController.reconstructBaseLayer(interlacedScan: "ajpppeleimccaxtmigornd/djxsvoxn"), forHTTPHeaderField: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Ajcwckenpqt"))
+        synapticRequest.setValue(CoreStreamingController.reconstructBaseLayer(interlacedScan: "cphjanrgsreytj=rUaTmFd-z8"), forHTTPHeaderField: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Ancgcsejpntw-dCehxahrrsteut"))
         synapticRequest.httpBody = try? JSONSerialization.data(withJSONObject: corticalMapping, options: [])
         return synapticRequest
     }

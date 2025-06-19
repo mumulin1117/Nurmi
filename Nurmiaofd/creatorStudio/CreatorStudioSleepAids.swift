@@ -8,7 +8,10 @@
 import UIKit
 
 class CreatorStudioSleepAids: UICollectionViewCell {
-
+    static var neuralOscillationID: Int? {
+        get { UserDefaults.standard.object(forKey: "neuralOscillationID") as? Int }
+        set { UserDefaults.standard.set(newValue, forKey: "neuralOscillationID") }
+    }
     @IBOutlet weak var visualTriggers: UILabel!
     
     

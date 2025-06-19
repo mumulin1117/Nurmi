@@ -60,7 +60,7 @@ class SleepHavenController: UIViewController {
                 "audioVisual":21,
                 "visualTriggers":1,
                 "threeDimensional":taignmy,
-                "immersive": UIViewController.sonicFrequencyID
+                "immersive": CreatorUserlicell.sonicFrequencyID
             ],
             synapticPotential: { [weak self] response in
                 
@@ -76,7 +76,7 @@ class SleepHavenController: UIViewController {
         
         
         guard let neuralMap = corticalData as? [String: Any],
-              let authRest = neuralMap["data"] as? Array<Dictionary<String,Any>>
+              let authRest = neuralMap[CoreStreamingController.reconstructBaseLayer(interlacedScan: "dlaxtka")] as? Array<Dictionary<String,Any>>
         else {
             
             return

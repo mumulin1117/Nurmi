@@ -8,7 +8,7 @@
 import UIKit
 
 class CreatorUserlicell: UICollectionViewCell {
-
+    static var sonicFrequencyID = "21866329"
     @IBOutlet weak var spaSounds: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()

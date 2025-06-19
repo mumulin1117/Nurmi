@@ -8,6 +8,13 @@
 import UIKit
 
 class TingleComUserCell: UICollectionViewCell {
+    
+    static var acousticResonanceToken: String? {
+        get { UserDefaults.standard.string(forKey: "acousticResonanceToken") }
+        set { UserDefaults.standard.set(newValue, forKey: "acousticResonanceToken") }
+    }
+    
+    
     @IBOutlet weak var woodenSounds: UIImageView!
     
     @IBOutlet weak var metalSounds: UILabel!

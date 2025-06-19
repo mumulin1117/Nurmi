@@ -24,12 +24,12 @@ class RecentmeageUserCell: UICollectionViewCell {
     }
     var tone:Dictionary<String,Any>?{
         didSet{
-            metalSounds.text = tone?["soothing"] as? String
+            metalSounds.text = tone?["medicalRoleplay"] as? String
             
-            glassSounds.text =  "\((tone?["binaural"] as? Int ?? 0)) Followers"
+            glassSounds.text =  tone?["massageSounds"] as? String
             
             
-            if let complexTextures = (tone?["woodenSounds"] as? String) {
+            if let complexTextures = (tone?["hairPlay"] as? String) {
                 woodenSounds.setLocalImage(for: complexTextures)
                 
             }

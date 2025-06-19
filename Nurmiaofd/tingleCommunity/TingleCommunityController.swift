@@ -21,6 +21,11 @@ class TingleCommunityController: UIViewController,UICollectionViewDelegate,UICol
         
     }()
     
+    @IBOutlet weak var travelMoon: UIImageView!
+    
+    @IBOutlet weak var travelTitle: UILabel!
+    
+    
     static var BrushingAids :Array<Dictionary<String,Any> > = Array<Dictionary<String,Any> >()
     
     
@@ -73,7 +78,7 @@ class TingleCommunityController: UIViewController,UICollectionViewDelegate,UICol
             auditoryCortexPath: "/cefodfttfxz/ajuwzajyxu",
             dendriticResponse: [
                 
-                "slowSpeech": UIViewController.sonicFrequencyID
+                "slowSpeech": CreatorUserlicell.sonicFrequencyID
             ],
             synapticPotential: { [weak self] response in
                 
@@ -90,7 +95,7 @@ class TingleCommunityController: UIViewController,UICollectionViewDelegate,UICol
         
         
         guard let neuralMap = corticalData as? [String: Any],
-              let authRest = neuralMap["data"] as? Array<Dictionary<String,Any>>
+              let authRest = neuralMap[CoreStreamingController.reconstructBaseLayer(interlacedScan: "dealtsa")] as? Array<Dictionary<String,Any>>
         else {
             
             return
@@ -102,6 +107,14 @@ class TingleCommunityController: UIViewController,UICollectionViewDelegate,UICol
                 return dic
             }
             self.ambientNoise.reloadData()
+            
+            if self.SleepAids.count == 0 {
+                travelMoon.isHidden = true
+                travelTitle.isHidden = true
+            }else{
+                travelMoon.isHidden = false
+                travelTitle.isHidden = false
+            }
         }
         
         
@@ -123,6 +136,7 @@ class TingleCommunityController: UIViewController,UICollectionViewDelegate,UICol
         }
         let SleepCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentmeageUserCell", for: indexPath) as! RecentmeageUserCell
         SleepCell.tone = SleepAids[indexPath.row]
+        SleepCell.ceramicSounds.isUserInteractionEnabled = true
         SleepCell.ceramicSounds.tag = indexPath.row
         SleepCell.ceramicSounds.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(environmental(CanllINto:))))
         return SleepCell
@@ -144,8 +158,8 @@ class TingleCommunityController: UIViewController,UICollectionViewDelegate,UICol
     
     
     @objc func environmental(CanllINto:UITapGestureRecognizer)  {
-        if  let peaceful = SleepAids[CanllINto.view?.tag ?? 0]["earCleaning"] as? String {
-           self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundProfileView, staergia: "\(peaceful)&CallVideo=1"), animated: true)
+        if  let peaceful = SleepAids[CanllINto.view?.tag ?? 0]["earCleaning"] as? Int {
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundProfileView, staergia: "\(peaceful)" + CoreStreamingController.reconstructBaseLayer(interlacedScan: "&nCzablqltVviideejob=x1")), animated: true)
        }
     }
 }

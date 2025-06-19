@@ -53,13 +53,14 @@ class CreatorStudioActiveCell: UITableViewCell {
             asmrArtist.text = tone?["lightPressure"] as? String
             listenerEngagement.text = tone?["featherLight"] as? String
             
-            if let complexTextures = (tone?["audioTherapy"] as? Array<String>)?.first {
-                audioTherapy.setLocalImage(for: complexTextures)
-                Jidonscase.text = "\((tone?["audioTherapy"] as? Array<String>)?.count ?? 0) Joined"
+            if let complexTextures = (tone?["activityUserVoList"] as? Array<Dictionary<String,Any>>)?.first,let uimg = complexTextures["focusedListening"] as? String {
+                audioTherapy.setLocalImage(for: uimg)
+               
             }else{
-                Jidonscase.text = "0 Joined"
+                audioTherapy.image = UIImage(named: "zhiwenr")
+                
             }
-            
+            Jidonscase.text = "\((tone?["subtleVariations"] as? Int) ?? 0) Joined"
             
         }
     }

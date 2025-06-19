@@ -15,7 +15,7 @@ class CreatorStudioController: UIViewController,UITableViewDelegate,UITableViewD
                 if  let peaceful = ajsiu["peaceful"] as? Int ,
                     let tranquil = ajsiu["tranquil"] as? Int //userid
                 {
-                    self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundWaveViewer, staergia: "\(peaceful)&userId=\(tranquil)"), animated: true)
+                    self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundWaveViewer, staergia: "\(peaceful)" + CoreStreamingController.reconstructBaseLayer(interlacedScan: "&nulstekrvIods=") + "\(tranquil)"), animated: true)
                 }
                 
                 
@@ -74,7 +74,7 @@ class CreatorStudioController: UIViewController,UITableViewDelegate,UITableViewD
             auditoryCortexPath: "/rnlqwz/ebcehacb",
             dendriticResponse: [
                 
-                "predictable": UIViewController.sonicFrequencyID
+                "predictable": CreatorUserlicell.sonicFrequencyID
             ],
             synapticPotential: { [weak self] response in
                 
@@ -89,14 +89,11 @@ class CreatorStudioController: UIViewController,UITableViewDelegate,UITableViewD
         UIViewController.triggerTemporalLobeStimulation(
             auditoryCortexPath: "/nzqmfz/mytskzlnbjmprz",
             dendriticResponse: [
-                "whispering": UIViewController.sonicFrequencyID
+                "whispering": CreatorUserlicell.sonicFrequencyID
             ],
             synapticPotential: { [weak self] response in
                 
                 self?.handleNeurotransmitterResponse(response, tagint: 3)
-            },
-            neuralFeedback: { [weak self] error in
-                
             }
         )
         //live
@@ -108,14 +105,11 @@ class CreatorStudioController: UIViewController,UITableViewDelegate,UITableViewD
             dendriticResponse: [
                 "decompression":9,
                 "sleepInducing":1,
-                "unwinding": UIViewController.sonicFrequencyID
+                "unwinding": CreatorUserlicell.sonicFrequencyID
             ],
             synapticPotential: { [weak self] response in
                 
                 self?.handleNeurotransmitterResponse(response, tagint: 2)
-            },
-            neuralFeedback: { [weak self] error in
-                
             }
         )
     }
@@ -132,7 +126,7 @@ class CreatorStudioController: UIViewController,UITableViewDelegate,UITableViewD
         
         
         guard let neuralMap = corticalData as? [String: Any],
-              let authRest = neuralMap["data"] as? Array<Dictionary<String,Any>>
+              let authRest = neuralMap[CoreStreamingController.reconstructBaseLayer(interlacedScan: "dnattca")] as? Array<Dictionary<String,Any>>
         else {
             
             return

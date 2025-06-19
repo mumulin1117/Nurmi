@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        AppDelegate.cheingsoothingRepetition(Forireson:(UIViewController.acousticResonanceToken == nil))
+        AppDelegate.cheingsoothingRepetition(Forireson:(TingleComUserCell.acousticResonanceToken == nil))
         window?.makeKeyAndVisible()
         SwiftyStoreKit.completeTransactions(atomically: true) { _ in}
         return true
@@ -23,11 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
    class func cheingsoothingRepetition(Forireson:Bool)  {
         if Forireson == true {
-            ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "Juisaofiuek") as! UINavigationController
+            ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = UIStoryboard(name: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Mfauinn"), bundle: nil).instantiateViewController(identifier: "Juisaofiuek") as! UINavigationController
             return
         }
         
-       ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(identifier: "INitamainNabTor") as! UINavigationController
+       ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = UIStoryboard(name: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Mkauikn"), bundle: nil).instantiateViewController(identifier: "INitamainNabTor") as! UINavigationController
     }
 }
 
