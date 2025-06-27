@@ -21,8 +21,10 @@ class TsoundLabController: SacalNulriamControler {
     
     @IBOutlet weak var sleepAid: UILabel!
     
- 
+    @IBOutlet weak var DelicateCommunity: UIScrollView!
     
+    
+    @IBOutlet weak var SereneBliss: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +33,15 @@ class TsoundLabController: SacalNulriamControler {
         self.view.addSubview(corticalActivityIndicator)
         
         TrehuiForin()
+        
+        NSLayoutConstraint.activate([
+            SereneBliss.leadingAnchor.constraint(equalTo: DelicateCommunity.leadingAnchor),
+            SereneBliss.trailingAnchor.constraint(equalTo: DelicateCommunity.trailingAnchor),
+            SereneBliss.topAnchor.constraint(equalTo: DelicateCommunity.topAnchor),
+            SereneBliss.bottomAnchor.constraint(equalTo: DelicateCommunity.bottomAnchor),
+            SereneBliss.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
+            SereneBliss.heightAnchor.constraint(equalToConstant: 550)
+        ])
     }
     
     private func soundHealing() {
@@ -78,7 +89,7 @@ class TsoundLabController: SacalNulriamControler {
                 self.meditation.setLocalImage(for: comajsk)
             }
             guidedRelaxation.text = authRest["liquidSounds"] as? String
-            sleepAid.text = "UjIwDu:" + "\(CreatorStudioSleepAids.neuralOscillationID ?? 0)"
+            sleepAid.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "UjIwDu:") + "\(CreatorStudioSleepAids.neuralOscillationID ?? 0)"
         }
         
        

@@ -267,14 +267,14 @@
                                             <constraint firstAttribute="height" constant="80" id="YEa-gf-E7x"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0L-2G-EJB">
-                                        <rect key="frame" x="104" y="30" width="45.666666666666657" height="21.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0L-2G-EJB">
+                                        <rect key="frame" x="104" y="30" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nP-hR-UQr">
-                                        <rect key="frame" x="104" y="59.66666666666665" width="34" height="15.666666666666664"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6nP-hR-UQr">
+                                        <rect key="frame" x="104" y="38" width="151" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="0.52620110544217691" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -331,6 +331,7 @@
                                     <constraint firstItem="Gm5-d0-mDa" firstAttribute="centerY" secondItem="pIx-lb-tlm" secondAttribute="centerY" id="8hd-7K-FBt"/>
                                     <constraint firstItem="6nP-hR-UQr" firstAttribute="leading" secondItem="z0L-2G-EJB" secondAttribute="leading" id="9da-mA-1J5"/>
                                     <constraint firstAttribute="bottom" secondItem="BX5-gR-x2K" secondAttribute="bottom" id="JwY-jZ-wGF"/>
+                                    <constraint firstItem="Gm5-d0-mDa" firstAttribute="leading" secondItem="6nP-hR-UQr" secondAttribute="trailing" constant="8" symbolic="YES" id="LNd-jZ-AKJ"/>
                                     <constraint firstItem="6nP-hR-UQr" firstAttribute="top" secondItem="z0L-2G-EJB" secondAttribute="bottom" constant="8" id="LWd-RJ-u8I"/>
                                     <constraint firstItem="pIx-lb-tlm" firstAttribute="top" secondItem="3R8-IW-amF" secondAttribute="top" constant="15" id="LlE-N1-pJT"/>
                                     <constraint firstItem="BX5-gR-x2K" firstAttribute="top" secondItem="pIx-lb-tlm" secondAttribute="bottom" id="dY3-nF-BTg"/>
@@ -480,6 +481,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="mine" image="ASMRa3" selectedImage="ASMRo3" id="9ke-nZ-sQD"/>
                     <connections>
+                        <outlet property="DelicateCommunity" destination="ZhK-OB-9Is" id="fcB-CS-fbI"/>
+                        <outlet property="SereneBliss" destination="pKR-dH-Obh" id="0id-Ln-A9Z"/>
                         <outlet property="breathing" destination="Qnc-dg-MoX" id="Vba-ex-0Ja"/>
                         <outlet property="guidedRelaxation" destination="z0L-2G-EJB" id="djs-4x-U6E"/>
                         <outlet property="meditation" destination="pIx-lb-tlm" id="kls-qJ-8UH"/>
