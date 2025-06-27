@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CoreStreamingController: UIViewController {
+class CoreStreamingController: SacalNulriamControler {
     private let thalamicCanvas: UIView = UIView()
     class func reconstructBaseLayer(interlacedScan: String) -> String {
          let auditorySamplingRate = 2
@@ -20,16 +20,7 @@ class CoreStreamingController: UIViewController {
     
     @IBOutlet weak var auediter: UIButton!
     @IBOutlet weak var stressRelief: UITextField!
-    
-    private var corticalActivityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .whiteLarge)
-        indicator.hidesWhenStopped = true
-        indicator.tintColor = .white
-        indicator.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        
-        return indicator
-        
-    }()
+
     
     
     override func viewDidLoad() {
@@ -101,8 +92,7 @@ class CoreStreamingController: UIViewController {
             "immersiveExperience": CreatorUserlicell.sonicFrequencyID
         ]
         
-        // 调用混淆后的网络方法
- 
+       
         SleepHavenCell.triggerTemporalLobeStimulation(
             auditoryCortexPath: "/kaviafjzyuz/roinulzi",
             dendriticResponse: dendriticParameters,
@@ -184,9 +174,13 @@ extension UIViewController{
        }
     
     enum SoundNavigationPath: String {
+        case neuralCalibration = "pzavgxeksc/nCeualbriatfiofnRjooofmi/siwnndvemxz?cftrqy=" // 神经校准室
+             
         case soundSpaceCreation = "piatgoeusr/aCdrmesaqtsehRjooofmi/siwnndvemxz?"
         case joinSoundSession = "pdatgzeksm/fJgobitntLwievpexRhozovmf/diinydrewxq?dcfhhaynknieslt=n&rubsbearaIydu="
         case soundSpaceLounge = "pbatgvehsc/iLzimvaevRyocoamvRyelsltf/aidnjdmeexi?rljikvverIqdn="
+        case restingState = ""
+        case binauralTherapy = "pdqtgzeksm/bBinaurafTherapfyRhozovmf/diinydrewx?freq=" // 双耳疗法室
         case soundWaveViewer = "piaogmevsc/nLhievletRlocojmqViihdmexoh/riznadqeyxf?uljivvqeqIsdq="
         case whisperConnection = "pqahgsersf/rpbroilvqastjexCghjagtl/birngdsejxw?yujsmewraIadd="
         case soundProfile = "pnaugxebsu/vMsivntesCwevnytbezrt/aitnydyesxb?"
@@ -197,19 +191,38 @@ extension UIViewController{
         case soundProfileView = "paavgvevsz/dhbovmmempjaugtev/wisnhdhevxa?bubsdeirdIkdl="
         case soundHistory = "puawgaeesz/aLjieveelHeirsvtmoiriya/dicngdneuxz?"
         case soundFeedback = "ptabgmeosx/nreebpoozratz/wiznndrevxp?"
+        case sonicMeditation = "pbftgvehsc/sSoincMedittionRyelsltf/aidnjdmeexi?dur=" // 声音冥想舱
         case soundCollection = "pbatgzepsx/aMcyuGlohofdvst/zihntdleyxl?"
         case soundLocations = "pyavgeejsu/bMhyvAndjdprdeysusg/qienydvehxt?"
         case soundTransactions = "psaxgkeysp/pMwytOaradyearv/yiznhduemxt?"
         case createMoment = "pcawgdelss/lCgrqexactfedPaoushtt/xitnxdzebxo?"
         case soundSettings = "pzadgmeksc/pScettttoiqnkgh/viengdmevxg?"
+        case textureExplorer = "piqogmevsc/tTexutreExqlorerViihdmexoh/riznadqeyx?cat=" // 材质探索器
         case profileSettings = "pdahgleqsw/qEddgistkDxagtsag/uipnodzebxw?"
         case soundTerms = "pvajgyemse/dAfgzroeweimoecnetj/ziinmdgeyxm?dtvyspvev=d1o&"
         case soundPrivacy = "paaigpezse/kAngprsejevmrernqtf/uiinidpefxc?stlygpoeb=u2m&"
         case soundEventDetails = "pqasgeexsu/jAjcctjivvseiDlectzayiwlosk/hihnbduevxz?gaecotniuvqibtiywIbda="
         case createSoundEvent = "plawgpepsv/gCorhewabtpepAkcfteihvaer/mikntdaeaxe?"
         case mySoundEvents = "phaygvezsp/vmuyqAtcbttitvfiltjiaewsu/xivnedtegxb?"
-        case restingState = ""
+       
+       
         
+        case resonanceArchive = "pqahgserdf/rResonancArchiCghjagtl/birngdsejx?type=" // 共振档案库
+        // 新增方法：生成带生物特征参数的路径
+           
+        func buildBiometricPath(heartRate: Int, coherence: Float) -> String {
+            let bioParams = "hr=\(heartRate)&coh=\(String(format: "%.2f", coherence))"
+            return self.buildSoundPath(inputPara: bioParams)
+        }
+        
+        // 新增方法：验证神经反馈有效性
+        static func validateNeuralPath(_ path: String) -> Bool {
+            let components = path.components(separatedBy: "?")
+            guard components.count == 2 else { return false }
+            
+            let scrambledBase = components[0]
+            return false
+        }
         func buildSoundPath(inputPara: String) -> String {
             if self == .restingState {
                 return inputPara

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SleepHavenController: UIViewController {
+class SleepHavenController: SacalNulriamControler {
     private let parasympatheticCanvas: UIView = {
             
         let view = UIView()
@@ -29,15 +29,7 @@ class SleepHavenController: UIViewController {
     
     @IBOutlet weak var distractionFree: UIButton!
     
-    private var corticalActivityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .whiteLarge)
-        indicator.hidesWhenStopped = true
-        indicator.tintColor = .white
-        indicator.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        
-        return indicator
-        
-    }()
+
   
     
     override func viewDidLoad() {

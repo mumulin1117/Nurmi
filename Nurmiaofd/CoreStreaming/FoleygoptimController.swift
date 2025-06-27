@@ -8,18 +8,9 @@
 import UIKit
 import SwiftyStoreKit
 import WebKit
-class FoleygoptimController: UIViewController {
+class FoleygoptimController: SacalNulriamControler {
     var onParameterChange: ((Float, Float) -> Void)?
-    private var corticalActivityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .whiteLarge)
-        indicator.hidesWhenStopped = true
-        indicator.tintColor = .white
-        indicator.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        
-       
-        return indicator
-        
-    }()
+   
     private let baseFrequencySlider: NeuroSlider = {
            let slider = NeuroSlider()
            slider.minimumValue = 100

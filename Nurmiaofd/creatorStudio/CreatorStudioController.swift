@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CreatorStudioController: UIViewController,UITableViewDelegate,UITableViewDataSource, CreatorStudioPopViewDelegate {
+class CreatorStudioController: SacalNulriamControler,UITableViewDelegate,UITableViewDataSource, CreatorStudioPopViewDelegate {
     func didichangeglaio(trpe: Int, ajsiu: Dictionary<String, Any>) {
         if trpe == 1 {
             let centering = ajsiu["centering"] as? Int
@@ -43,15 +43,7 @@ class CreatorStudioController: UIViewController,UITableViewDelegate,UITableViewD
     @IBOutlet weak var scratchingView: UITableView!
     
     @IBOutlet weak var earToEar: UIButton!
-    private var corticalActivityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .whiteLarge)
-        indicator.hidesWhenStopped = true
-        indicator.tintColor = .white
-        indicator.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        
-        return indicator
-        
-    }()
+   
     let relaxationStation:CreatorStudioPopView = UINib(nibName: "CreatorStudioPopView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! CreatorStudioPopView
     
     override func viewDidLoad() {

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TingleCommunityController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
+class TingleCommunityController: SacalNulriamControler,UICollectionViewDelegate,UICollectionViewDataSource {
 
     @IBOutlet weak var mindfulness: UICollectionView!
     private let switchBackground: UIView = {
@@ -18,15 +18,7 @@ class TingleCommunityController: UIViewController,UICollectionViewDelegate,UICol
         return view
         
     }()
-    private var corticalActivityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(style: .whiteLarge)
-        indicator.hidesWhenStopped = true
-        indicator.tintColor = .white
-        indicator.frame = CGRect(x: 0, y: 0, width: 100, height: 100)
-        
-        return indicator
-        
-    }()
+    
     
     @IBOutlet weak var travelMoon: UIImageView!
     
