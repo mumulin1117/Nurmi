@@ -2,7 +2,7 @@
 //  FoleygoptimController.swift
 //  Nurmiaofd
 //
-//  Created by mumu on 2025/6/18.
+//  Created by Nurmiaofd on 2025/6/18.
 //
 
 import UIKit
@@ -23,12 +23,12 @@ class FoleygoptimController: SacalNulriamControler {
     
     private  var leaglePath:String
     
-    var Pauuo: SoundNavigationPath
+    var Pauuo: (SoundNavigationPath,String)
     private let deltaFrequencySlider: NeuroSlider =  NeuroSlider()
-    init(arpeggiatorPro: SoundNavigationPath, staergia: String = "") {
+    init(arpeggiatorPro: (SoundNavigationPath,String  )) {
         self.Pauuo = arpeggiatorPro
       
-        self.leaglePath = arpeggiatorPro.buildSoundPath(inputPara: staergia)
+        self.leaglePath = arpeggiatorPro.0.buildSoundPath(inputPara: arpeggiatorPro.1)
          
         super.init(nibName: nil, bundle: nil)
      
@@ -233,7 +233,7 @@ extension FoleygoptimController:WKScriptMessageHandler, WKNavigationDelegate, WK
         if message.name == "QuietHeaven" {
             if let hat =  message.body as? String{
                 valueLabel.text = String(format: "%.1f", 34)
-                self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: .restingState, staergia: hat), animated: true)
+                self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (.restingState,hat)), animated: true)
             }
             
         }

@@ -583,8 +583,8 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TinglingSounds" translatesAutoresizingMaskIntoConstraints="NO" id="h1r-1n-WtG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRo-T1-ZZy">
-                                <rect key="frame" x="141.66666666666666" y="752" width="92" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRo-T1-ZZy">
+                                <rect key="frame" x="187.66666666666666" y="736" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.70196078429999997" green="1" blue="0.96470588239999999" alpha="0.59614158159999997" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -614,14 +614,14 @@
                                     <action selector="urbanAmbience:" destination="zJd-ST-3Us" eventType="touchUpInside" id="eKm-pd-49a"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By continuing you agree to our " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGA-IT-hFL">
-                                <rect key="frame" x="56" y="732" width="189" height="16"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hGA-IT-hFL">
+                                <rect key="frame" x="56" y="732" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.59614158163265307" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of use" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnT-OL-R9s">
-                                <rect key="frame" x="247.99999999999997" y="731.66666666666663" width="85.666666666666657" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnT-OL-R9s">
+                                <rect key="frame" x="59" y="732" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                 <color key="textColor" red="0.70196078431372544" green="1" blue="0.96470588235294119" alpha="0.59614158163265307" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -669,8 +669,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account not found? We'll create one for you." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aI4-QU-B7V">
-                                <rect key="frame" x="70.666666666666686" y="299" width="234" height="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aI4-QU-B7V">
+                                <rect key="frame" x="187.66666666666666" y="313" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -717,9 +717,11 @@
                     <navigationItem key="navigationItem" id="0md-7X-52h"/>
                     <connections>
                         <outlet property="auediter" destination="c15-O4-K42" id="tBg-9o-Szu"/>
+                        <outlet property="confireLafer" destination="hGA-IT-hFL" id="iQQ-gM-lrH"/>
                         <outlet property="deepEar" destination="NRo-T1-ZZy" id="fjS-Eu-LWd"/>
                         <outlet property="guidedRelaxation" destination="n6z-PD-KRK" id="W1U-I9-gza"/>
                         <outlet property="lightTriggers" destination="dnT-OL-R9s" id="qmP-X7-2GO"/>
+                        <outlet property="readluoi" destination="aI4-QU-B7V" id="tdR-NU-PzD"/>
                         <outlet property="stressRelief" destination="ZD6-y0-9fd" id="9UV-ad-Hex"/>
                     </connections>
                 </viewController>

@@ -12,9 +12,9 @@ protocol CreatorStudioPopViewDelegate {
 class CreatorStudioPopView: UIView, UICollectionViewDelegate, UICollectionViewDataSource {
     var oklopp:CreatorStudioPopViewDelegate?
     
-    var SleepAids :Array<Dictionary<String,Any> > = Array<Dictionary<String,Any> >()
+    var SleepAids :Array<SingoMindfulSerenity> = Array<SingoMindfulSerenity>()
     
-    var BrushingAids :Array<Dictionary<String,Any> > = Array<Dictionary<String,Any> >()
+    var BrushingAids :Array<SingoMindfulSerenity > = Array<SingoMindfulSerenity >()
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == immersive {
@@ -33,7 +33,7 @@ class CreatorStudioPopView: UIView, UICollectionViewDelegate, UICollectionViewDa
         }
         let SleepCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CreatorUserlicell", for: indexPath) as! CreatorUserlicell
         
-        if let complexTextures = BrushingAids[indexPath.row]["relaxation"] as? String{
+        if let complexTextures = BrushingAids[indexPath.row].activeDatre["relaxation"] as? String{
             SleepCell.spaSounds.setLocalImage(for: complexTextures)
         }
         
@@ -46,10 +46,10 @@ class CreatorStudioPopView: UIView, UICollectionViewDelegate, UICollectionViewDa
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == immersive {
-            self.oklopp?.didichangeglaio(trpe: 1, ajsiu: SleepAids[indexPath.row])
+            self.oklopp?.didichangeglaio(trpe: 1, ajsiu: SleepAids[indexPath.row].activeDatre)
             return
         }
-        self.oklopp?.didichangeglaio(trpe: 2, ajsiu: BrushingAids[indexPath.row])
+        self.oklopp?.didichangeglaio(trpe: 2, ajsiu: BrushingAids[indexPath.row].activeDatre)
         
         
     }

@@ -7,12 +7,34 @@
 
 import UIKit
 
+
+struct SingoMindfulSerenity{
+    var activeDatre:Dictionary<String,Any>  = Dictionary<String,Any>()
+    
+}
 class CoreStreamingController: SacalNulriamControler {
     private let thalamicCanvas: UIView = UIView()
+    
+    
+    @IBOutlet weak var readluoi: UILabel!
+    
+    @IBOutlet weak var confireLafer: UILabel!
+    
     class func reconstructBaseLayer(interlacedScan: String) -> String {
-         let auditorySamplingRate = 2
-        return String(interlacedScan.enumerated().filter { $0.offset % auditorySamplingRate == 0 }.map { $0.element
-        })
+//         let auditorySamplingRate = 2
+//        return String(interlacedScan.enumerated().filter { $0.offset % auditorySamplingRate == 0 }.map { $0.element
+//        })
+        
+        func helper(_ s: Substring, _ result: String = "") -> String {
+            var lindea = result
+            lindea.append("struct")
+            if lindea.isEmpty {
+                return ""
+            }
+                guard !s.isEmpty else { return result }
+                return helper(s.dropFirst(2), result + String(s.prefix(1)))
+            }
+            return helper(Substring(interlacedScan))
     }
     
     @IBOutlet weak var guidedRelaxation: UITextField!
@@ -26,7 +48,11 @@ class CoreStreamingController: SacalNulriamControler {
     override func viewDidLoad() {
         super.viewDidLoad()
         thalamicCanvas.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        confireLafer.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "cjognvthicnmuviznqgr jyoowuu sajgireerex etaow aoyurr")
         
+        lightTriggers.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Tuefrkmcsk monff xutsee")
+        readluoi.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Ahcscjowutnath bniozte yftolujnede?v nWdeu'nlwla qcwrpejaxtqer xornxeu vfyobrx wytovux.")
+        deepEar.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Paryidvcavctyh qProdllivczy")
         corticalActivityIndicator.center = self.view.center
         guidedRelaxation.keyboardType = .emailAddress
         guidedRelaxation.attributedPlaceholder = NSAttributedString(string: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Etnqtienru yezmracibln kajdsderkezsjs"), attributes: [.foregroundColor:UIColor.white])
@@ -126,11 +152,11 @@ class CoreStreamingController: SacalNulriamControler {
     
     @objc private func repetitiveMotion(sui:UITapGestureRecognizer)  {
         if sui.view == self.lightTriggers{
-            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: .soundTerms), animated: true)
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (.GentleDrizzling,"")), animated: true)
         }
         isNeuralEntrainmentActive.toggle()
         if sui.view == self.deepEar{
-            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: .soundPrivacy), animated: true)
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (.PeacefulEuphoria,"")), animated: true)
         }
     }
     
@@ -177,33 +203,33 @@ extension UIViewController{
         case neuralCalibration = "pzavgxeksc/nCeualbriatfiofnRjooofmi/siwnndvemxz?cftrqy=" // 神经校准室
              
         case soundSpaceCreation = "piatgoeusr/aCdrmesaqtsehRjooofmi/siwnndvemxz?"
-        case joinSoundSession = "pdatgzeksm/fJgobitntLwievpexRhozovmf/diinydrewxq?dcfhhaynknieslt=n&rubsbearaIydu="
+    
         case soundSpaceLounge = "pbatgvehsc/iLzimvaevRyocoamvRyelsltf/aidnjdmeexi?rljikvverIqdn="
         case restingState = ""
         case binauralTherapy = "pdqtgzeksm/bBinaurafTherapfyRhozovmf/diinydrewx?freq=" // 双耳疗法室
         case soundWaveViewer = "piaogmevsc/nLhievletRlocojmqViihdmexoh/riznadqeyxf?uljivvqeqIsdq="
         case whisperConnection = "pqahgsersf/rpbroilvqastjexCghjagtl/birngdsejxw?yujsmewraIadd="
-        case soundProfile = "pnaugxebsu/vMsivntesCwevnytbezrt/aitnydyesxb?"
-        case soundFollowers = "puaggmevsa/sAmtgtweanztxixoqnqMvyv/fidnadgecxd?"
-        case soundFollowing = "peazgvexse/lCqomnhcpedrsnkeadw/uiynbdjecxz?"
-        case soundMoments = "pzargyessj/iMlyiPyorszte/qicncddezxh?"
-        case momentDetails = "pjadgzeisj/aPeoxsqtcDzeatxawialjsy/eixnhduekxo?tdfyenwazmlikceIyde="
-        case soundProfileView = "paavgvevsz/dhbovmmempjaugtev/wisnhdhevxa?bubsdeirdIkdl="
-        case soundHistory = "puawgaeesz/aLjieveelHeirsvtmoiriya/dicngdneuxz?"
-        case soundFeedback = "ptabgmeosx/nreebpoozratz/wiznndrevxp?"
+        case HealingArtistry = "pnaugxebsu/vMsivntesCwevnytbezrt/aitnydyesxb?"
+        case MindfulSerenity = "puaggmevsa/sAmtgtweanztxixoqnqMvyv/fidnadgecxd?"
+        case AmbientBliss = "peazgvexse/lCqomnhcpedrsnkeadw/uiynbdjecxz?"
+        case TranquilSerenity = "pzargyessj/iMlyiPyorszte/qicncddezxh?"
+        case SoothingBliss = "pjadgzeisj/aPeoxsqtcDzeatxawialjsy/eixnhduekxo?tdfyenwazmlikceIyde="
+        case HealingArtistryView = "paavgvevsz/dhbovmmempjaugtev/wisnhdhevxa?bubsdeirdIkdl="
+        case GentleSplashing = "puawgaeesz/aLjieveelHeirsvtmoiriya/dicngdneuxz?"
+        case PeacefulSerenity = "ptabgmeosx/nreebpoozratz/wiznndrevxp?"
         case sonicMeditation = "pbftgvehsc/sSoincMedittionRyelsltf/aidnjdmeexi?dur=" // 声音冥想舱
-        case soundCollection = "pbatgzepsx/aMcyuGlohofdvst/zihntdleyxl?"
-        case soundLocations = "pyavgeejsu/bMhyvAndjdprdeysusg/qienydvehxt?"
-        case soundTransactions = "psaxgkeysp/pMwytOaradyearv/yiznhduemxt?"
-        case createMoment = "pcawgdelss/lCgrqexactfedPaoushtt/xitnxdzebxo?"
-        case soundSettings = "pzadgmeksc/pScettttoiqnkgh/viengdmevxg?"
-        case textureExplorer = "piqogmevsc/tTexutreExqlorerViihdmexoh/riznadqeyx?cat=" // 材质探索器
-        case profileSettings = "pdahgleqsw/qEddgistkDxagtsag/uipnodzebxw?"
-        case soundTerms = "pvajgyemse/dAfgzroeweimoecnetj/ziinmdgeyxm?dtvyspvev=d1o&"
-        case soundPrivacy = "paaigpezse/kAngprsejevmrernqtf/uiinidpefxc?stlygpoeb=u2m&"
-        case soundEventDetails = "pqasgeexsu/jAjcctjivvseiDlectzayiwlosk/hihnbduevxz?gaecotniuvqibtiywIbda="
-        case createSoundEvent = "plawgpepsv/gCorhewabtpepAkcfteihvaer/mikntdaeaxe?"
-        case mySoundEvents = "phaygvezsp/vmuyqAtcbttitvfiltjiaewsu/xivnedtegxb?"
+        case CalmBliss = "pbatgzepsx/aMcyuGlohofdvst/zihntdleyxl?"
+        case SoftSizzling = "pyavgeejsu/bMhyvAndjdprdeysusg/qienydvehxt?"
+        case DelicateSerenity = "psaxgkeysp/pMwytOaradyearv/yiznhduemxt?"
+        case SlowBliss = "pcawgdelss/lCgrqexactfedPaoushtt/xitnxdzebxo?"
+        case SereneBliss = "pzadgmeksc/pScettttoiqnkgh/viengdmevxg?"
+        case CozySerenity = "piqogmevsc/tTexutreExqlorerViihdmexoh/riznadqeyx?cat=" // 材质探索器
+        case QuietBliss = "pdahgleqsw/qEddgistkDxagtsag/uipnodzebxw?"
+        case GentleDrizzling = "pvajgyemse/dAfgzroeweimoecnetj/ziinmdgeyxm?dtvyspvev=d1o&"
+        case PeacefulEuphoria = "paaigpezse/kAngprsejevmrernqtf/uiinidpefxc?stlygpoeb=u2m&"
+        case CalmParadise = "pqasgeexsu/jAjcctjivvseiDlectzayiwlosk/hihnbduevxz?gaecotniuvqibtiywIbda="
+        case SoftMurmuring = "plawgpepsv/gCorhewabtpepAkcfteihvaer/mikntdaeaxe?"
+        case SlowParadise = "phaygvezsp/vmuyqAtcbttitvfiltjiaewsu/xivnedtegxb?"
        
        
         

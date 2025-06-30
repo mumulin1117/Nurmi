@@ -25,7 +25,7 @@ class TingleCommunityController: SacalNulriamControler,UICollectionViewDelegate,
     @IBOutlet weak var travelTitle: UILabel!
     
     
-    static var BrushingAids :Array<Dictionary<String,Any> > = Array<Dictionary<String,Any> >()
+    static var BrushingAids :Array<SingoMindfulSerenity > = Array<SingoMindfulSerenity >()
     
     
     @IBOutlet weak var ambientNoise: UICollectionView!
@@ -180,20 +180,20 @@ class TingleCommunityController: SacalNulriamControler,UICollectionViewDelegate,
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if collectionView == mindfulness {
-            if  let peaceful = TingleCommunityController.BrushingAids[indexPath.row]["tingling"] as? Int {
-                self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundProfileView, staergia: "\(peaceful)"), animated: true)
+            if  let peaceful = TingleCommunityController.BrushingAids[indexPath.row].activeDatre["tingling"] as? Int {
+                self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.HealingArtistryView, "\(peaceful)")), animated: true)
             }
             return
         }
         if  let peaceful = SleepAids[indexPath.row]["earCleaning"] as? Int {
-            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.whisperConnection, staergia: "\(peaceful)"), animated: true)
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.whisperConnection,  "\(peaceful)")), animated: true)
         }
     }
     
     
     @objc func environmental(CanllINto:UITapGestureRecognizer)  {
         if  let peaceful = SleepAids[CanllINto.view?.tag ?? 0]["earCleaning"] as? Int {
-            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundProfileView, staergia: "\(peaceful)" + CoreStreamingController.reconstructBaseLayer(interlacedScan: "&nCzablqltVviideejob=x1")), animated: true)
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.HealingArtistryView, "\(peaceful)" + CoreStreamingController.reconstructBaseLayer(interlacedScan: "&nCzablqltVviideejob=x1"))), animated: true)
        }
     }
 }

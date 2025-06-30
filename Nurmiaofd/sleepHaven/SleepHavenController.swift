@@ -18,7 +18,7 @@ class SleepHavenController: SacalNulriamControler {
        
     }()
     
-    private  var activeDatre:Array<Dictionary<String,Any>>  = Array<Dictionary<String,Any>>()
+    private  var activeDatre:Array<SingoMindfulSerenity>  = Array<SingoMindfulSerenity>()
     
     @IBOutlet weak var pureSounds: UICollectionView!
     
@@ -103,14 +103,16 @@ class SleepHavenController: SacalNulriamControler {
             return
         }
         if tagint == 1 {
-            self.activeDatre = authRest
+            self.activeDatre = authRest.map({ tru in
+                SingoMindfulSerenity.init(activeDatre: tru)
+            })
             self.pureSounds.reloadData()
         }
         
       
     }
     @IBAction func focusedListening(_ sender: Any) {
-        self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.createMoment), animated: true)
+        self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.SlowBliss,"")), animated: true)
     }
     
     private let hrvGraphView: BiofeedbackGraph = {
@@ -196,13 +198,13 @@ extension SleepHavenController: UICollectionViewDelegate,UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if  let peaceful = activeDatre[indexPath.row]["meditation"] as? Int {
-            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.momentDetails, staergia: "\(peaceful)"), animated: true)
+        if  let peaceful = activeDatre[indexPath.row].activeDatre["meditation"] as? Int {
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.SoothingBliss,  "\(peaceful)")), animated: true)
         }
     }
     
     @objc func anxietyReduction()  {
-        self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundFeedback), animated: true)
+        self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.PeacefulSerenity,"")), animated: true)
     }
     func stopPacing() {
         
@@ -211,8 +213,8 @@ extension SleepHavenController: UICollectionViewDelegate,UICollectionViewDataSou
     }
         
     @objc func environmental(CanllINto:UITapGestureRecognizer)  {
-        if  let peaceful = activeDatre[CanllINto.view?.tag ?? 0]["sleepAid"] as? String {
-           self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundProfileView, staergia: "\(peaceful)&CallVideo=1"), animated: true)
+        if  let peaceful = activeDatre[CanllINto.view?.tag ?? 0].activeDatre["sleepAid"] as? String {
+           self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.HealingArtistryView, "\(peaceful)&CallVideo=1")), animated: true)
        }
     }
     

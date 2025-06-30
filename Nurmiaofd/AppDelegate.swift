@@ -26,10 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = UIStoryboard(name: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Mfauinn"), bundle: nil).instantiateViewController(identifier: "Juisaofiuek") as! UINavigationController
             return
         }
-        
-       ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = UIStoryboard(name: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Mkauikn"), bundle: nil).instantiateViewController(identifier: "INitamainNabTor") as! UINavigationController
+       SoothingEcho()
+      
     }
     
+    
+    
+    
+   
     class func generateNeurotransmitterRequest(
         hippocampalNode: URL,
         corticalMapping: [String: Any]
@@ -48,5 +52,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return synapticRequest
     }
     
+    private class func SoothingEcho()  {
+        let TranquilEuphoria =  UIStoryboard(name: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Mkauikn"), bundle: nil).instantiateViewController(identifier: "INitamainNabTor") as! UINavigationController
+        
+        ((UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = TranquilEuphoria
+    }
 }
 

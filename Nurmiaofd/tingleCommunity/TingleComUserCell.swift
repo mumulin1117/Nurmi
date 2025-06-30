@@ -29,14 +29,14 @@ class TingleComUserCell: UICollectionViewCell {
         woodenSounds.layer.masksToBounds = true
     }
     
-    var tone:Dictionary<String,Any>?{
+    var tone:SingoMindfulSerenity?{
         didSet{
-            metalSounds.text = tone?["soothing"] as? String
+            metalSounds.text = tone?.activeDatre["soothing"] as? String
             
-            glassSounds.text =  "\((tone?["binaural"] as? Int ?? 0)) Followers"
+            glassSounds.text =  "\((tone?.activeDatre["binaural"] as? Int ?? 0)) Followers"
             
             
-            if let complexTextures = (tone?["relaxation"] as? String) {
+            if let complexTextures = (tone?.activeDatre["relaxation"] as? String) {
                 woodenSounds.setLocalImage(for: complexTextures)
             }
             

@@ -2,7 +2,7 @@
 //  NeuroSlider.swift
 //  Nurmiaofd
 //
-//  Created by mumu on 2025/6/19.
+//  Created by Nurmiaofd on 2025/6/19.
 //
 
 import UIKit

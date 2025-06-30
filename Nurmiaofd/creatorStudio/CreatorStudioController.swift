@@ -15,13 +15,16 @@ class CreatorStudioController: SacalNulriamControler,UITableViewDelegate,UITable
                 if  let peaceful = ajsiu["peaceful"] as? Int ,
                     let tranquil = ajsiu["tranquil"] as? Int //userid
                 {
-                    self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundWaveViewer, staergia: "\(peaceful)" + CoreStreamingController.reconstructBaseLayer(interlacedScan: "&nulstekrvIods=") + "\(tranquil)"), animated: true)
+                    
+                    let guli = (UIViewController.SoundNavigationPath.soundWaveViewer,  "\(peaceful)" + CoreStreamingController.reconstructBaseLayer(interlacedScan: "&nulstekrvIods=") + "\(tranquil)")
+                    
+                    self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro:guli ), animated: true)
                 }
                 
                 
             }else{
                 if  let peaceful = ajsiu["peaceful"] as? Int {
-                    self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundSpaceLounge, staergia: "\(peaceful)"), animated: true)
+                    self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.soundSpaceLounge,  "\(peaceful)")), animated: true)
                 }
                 
             }
@@ -30,15 +33,15 @@ class CreatorStudioController: SacalNulriamControler,UITableViewDelegate,UITable
         }else if   trpe == 2{
            if let tranquil = ajsiu["tingling"] as? Int
            {
-               self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundProfileView, staergia: "\(tranquil)"), animated: true)
+               self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.HealingArtistryView,  "\(tranquil)")), animated: true)
            }
         }else if   trpe == 3{
-            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundFeedback), animated: true)
+            self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.PeacefulSerenity,"")), animated: true)
         }
         
     }
     
-    private  var activeDatre:Array<Dictionary<String,Any>>  = Array<Dictionary<String,Any>>()
+    private  var activeDatre:Array<SingoMindfulSerenity>  = Array<SingoMindfulSerenity>()
     
     @IBOutlet weak var scratchingView: UITableView!
     
@@ -109,7 +112,7 @@ class CreatorStudioController: SacalNulriamControler,UITableViewDelegate,UITable
 
     @IBAction func crinkling(_ sender: UIButton) {
       
-        self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundSpaceCreation), animated: true)
+        self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.soundSpaceCreation,"")), animated: true)
        
     }
     
@@ -124,18 +127,26 @@ class CreatorStudioController: SacalNulriamControler,UITableViewDelegate,UITable
             return
         }
         if tagint == 1 {
-            self.activeDatre = authRest
+            self.activeDatre = authRest.map({ rejfi in
+                SingoMindfulSerenity.init(activeDatre: rejfi)
+            })
             self.scratchingView.reloadData()
         }
         
         if tagint == 2 {
-            self.relaxationStation.SleepAids = authRest
+            self.relaxationStation.SleepAids = authRest.map({ join in
+                SingoMindfulSerenity.init(activeDatre: join)
+            })
             self.relaxationStation.immersive.reloadData()
         }
         
         if tagint == 3 {
-            TingleCommunityController.BrushingAids = authRest
-            self.relaxationStation.BrushingAids = authRest
+            TingleCommunityController.BrushingAids = authRest.map({ join in
+                SingoMindfulSerenity.init(activeDatre: join)
+            })
+            self.relaxationStation.BrushingAids = authRest.map({ join in
+                SingoMindfulSerenity.init(activeDatre: join)
+            })
             self.relaxationStation.micBrushing.reloadData()
         }
     }
@@ -158,8 +169,8 @@ class CreatorStudioController: SacalNulriamControler,UITableViewDelegate,UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let actIOi = activeDatre[indexPath.row]["precise"] as? Int {
-            let acritosllll = FoleygoptimController.init(arpeggiatorPro: UIViewController.SoundNavigationPath.soundEventDetails, staergia: "\(actIOi)")
+        if let actIOi = activeDatre[indexPath.row].activeDatre["precise"] as? Int {
+            let acritosllll = FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.CalmParadise,"\(actIOi)"))
             self.navigationController?.pushViewController(acritosllll, animated: true)
         }
         
@@ -181,14 +192,41 @@ class CreatorStudioController: SacalNulriamControler,UITableViewDelegate,UITable
 
 extension UIImageView{
     func setLocalImage(for url:String) {
-        if let url = URL(string: url) {
-            URLSession.shared.dataTask(with: url) { data, response, error in
+        if let urls = URL(string: url) {
+            URLSession.shared.dataTask(with: urls) { data, response, error in
                 if let data = data, let image = UIImage(data: data) {
                     DispatchQueue.main.async {
-                        self.image = image
+                        if url.contains("b8fdc83789254be48d57a7e30c6a9d07312") {
+                            self.image  =  self.cropImage(image, leftMargin: 30, rightMargin: 30)
+                            
+                        }else{
+                            self.image  =  image
+                        }
+                         
                     }
                 }
             }.resume()
         }
+    }
+    
+    func cropImage(_ image: UIImage, leftMargin: CGFloat, rightMargin: CGFloat) -> UIImage? {
+        let cropRect = CGRect(
+            x: leftMargin * image.scale,
+            y: 0,
+            width: (image.size.width - leftMargin - rightMargin) * image.scale,
+            height: image.size.height * image.scale
+        )
+        
+        UIGraphicsBeginImageContextWithOptions(
+            CGSize(width: cropRect.width, height: cropRect.height),
+            false,
+            image.scale
+        )
+        
+        image.draw(at: CGPoint(x: -cropRect.origin.x, y: -cropRect.origin.y))
+        let croppedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return croppedImage
     }
 }

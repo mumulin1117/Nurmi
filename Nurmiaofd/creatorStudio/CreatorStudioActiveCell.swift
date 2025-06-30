@@ -6,7 +6,7 @@
 //
 
 import UIKit
-//active cell
+
 class CreatorStudioActiveCell: UITableViewCell {
     
     
@@ -43,24 +43,24 @@ class CreatorStudioActiveCell: UITableViewCell {
         Uhzhugn.layer.cornerRadius = 20
     }
     
-    var tone:Dictionary<String,Any>?{
+    var tone:SingoMindfulSerenity?{
         didSet{
-            if let complexTextures = tone?["complexTextures"] as? String{
+            if let complexTextures = tone?.activeDatre["complexTextures"] as? String{
                 cozyVibes.setLocalImage(for: complexTextures)
             }
-            comfortSounds.text =  tone?["controlled"] as? String ?? ""
-            triggerLibrary.text =  "#" + (tone?["textureVariety"] as? String ?? "")
-            asmrArtist.text = tone?["lightPressure"] as? String
-            listenerEngagement.text = tone?["featherLight"] as? String
+            comfortSounds.text =  tone?.activeDatre["controlled"] as? String ?? ""
+            triggerLibrary.text =  "#" + (tone?.activeDatre["textureVariety"] as? String ?? "")
+            asmrArtist.text = tone?.activeDatre["lightPressure"] as? String
+            listenerEngagement.text = tone?.activeDatre["featherLight"] as? String
             
-            if let complexTextures = (tone?["activityUserVoList"] as? Array<Dictionary<String,Any>>)?.first,let uimg = complexTextures["focusedListening"] as? String {
+            if let complexTextures = (tone?.activeDatre["activityUserVoList"] as? Array<Dictionary<String,Any>>)?.first,let uimg = complexTextures["focusedListening"] as? String {
                 audioTherapy.setLocalImage(for: uimg)
                
             }else{
                 audioTherapy.image = UIImage(named: "zhiwenr")
                 
             }
-            Jidonscase.text = "\((tone?["subtleVariations"] as? Int) ?? 0) Joined"
+            Jidonscase.text = "\((tone?.activeDatre["subtleVariations"] as? Int) ?? 0) Joined"
             
         }
     }

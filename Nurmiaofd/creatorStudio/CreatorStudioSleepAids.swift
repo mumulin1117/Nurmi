@@ -21,17 +21,19 @@ class CreatorStudioSleepAids: UICollectionViewCell {
     
     @IBOutlet weak var soundHealing: UILabel!
    
-    var tone:Dictionary<String,Any>?{
+    var tone:SingoMindfulSerenity?{
         didSet{
-            if let complexTextures = tone?["zenLike"] as? String{
+            if let complexTextures = tone?.activeDatre["zenLike"] as? String{
                 audioVisual.setLocalImage(for: complexTextures)
+                audioVisual.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+               
+                visualTriggers.isHidden = ((tone?.activeDatre["centering"] as? Int) != -1)
+                
+                whisperCommunity.text = tone?.activeDatre["harmonious"] as? String
+                soundHealing.text = "See \(Int.random(in: 50...70))"
+                
+                
             }
-            visualTriggers.isHidden = ((tone?["centering"] as? Int) != -1)
-            
-            whisperCommunity.text = tone?["harmonious"] as? String
-            soundHealing.text = "See \(Int.random(in: 50...70))"
-            
-            
         }
     }
     
@@ -48,4 +50,7 @@ class CreatorStudioSleepAids: UICollectionViewCell {
     }
 
     @IBOutlet weak var handMovements: UIImageView!
+    
+    
 }
+
