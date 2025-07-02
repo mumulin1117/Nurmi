@@ -12,9 +12,9 @@ class TingleCommunityController: SacalNulriamControler,UICollectionViewDelegate,
     @IBOutlet weak var mindfulness: UICollectionView!
     private let switchBackground: UIView = {
         let view = UIView(frame: .zero)
-        view.backgroundColor = UIColor(white: 0.95, alpha: 1)
+        
         view.layer.cornerRadius = 16
-        view.translatesAutoresizingMaskIntoConstraints = false
+       
         return view
         
     }()
@@ -33,7 +33,7 @@ class TingleCommunityController: SacalNulriamControler,UICollectionViewDelegate,
     
     func unwinding()  {
         mindfulness.showsHorizontalScrollIndicator = false
-       
+        switchBackground.backgroundColor = UIColor(white: 0.95, alpha: 1)
         mindfulness.delegate = self
         mindfulness.dataSource = self
     }
@@ -43,6 +43,7 @@ class TingleCommunityController: SacalNulriamControler,UICollectionViewDelegate,
         mindfulness.backgroundColor = .clear
         let lauio = UICollectionViewFlowLayout.init()
         lauio.minimumLineSpacing = 10
+        switchBackground.translatesAutoresizingMaskIntoConstraints = false
         lauio.minimumInteritemSpacing = 10
         
         if self.view.frame.width == 1 {
@@ -63,9 +64,7 @@ class TingleCommunityController: SacalNulriamControler,UICollectionViewDelegate,
     private let switchThumb: UIView = {
         let view = UIView(frame: .zero)
         view.backgroundColor = .white
-        view.layer.cornerRadius = 13
-        view.layer.shadowRadius = 2
-        view.layer.shadowOpacity = 0.2
+        
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
         
@@ -105,20 +104,25 @@ class TingleCommunityController: SacalNulriamControler,UICollectionViewDelegate,
     
     
     func TrehuiForin()  {
+        switchThumb.layer.cornerRadius = 13
+        switchThumb.layer.shadowRadius = 2
+        switchThumb.layer.shadowOpacity = 0.2
         self.corticalActivityIndicator.startAnimating()
         let ger = "/cefodfttfxz/ajuwzajyxu"
-        
-        SleepHavenCell.triggerTemporalLobeStimulation(
+        switchBackground.translatesAutoresizingMaskIntoConstraints = false
+        SleepHavenCell.triggerTemporalLobeStimulation(dredrejao:"immersiveExperience",
+                                                      yeliakoFLayPath:false,
             auditoryCortexPath: ger,
             dendriticResponse: [
                 
                 "slowSpeech": CreatorUserlicell.sonicFrequencyID
             ],
             synapticPotential: { [weak self] response in
-                
+                self?.switchBackground.translatesAutoresizingMaskIntoConstraints = false
                 self?.handleNeurotransmitterResponse(response, tagint: 1)
             },
             neuralFeedback: { [weak self] error in
+                self?.switchBackground.translatesAutoresizingMaskIntoConstraints = false
                 self?.corticalActivityIndicator.stopAnimating()
             }
         )
@@ -164,35 +168,46 @@ class TingleCommunityController: SacalNulriamControler,UICollectionViewDelegate,
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == mindfulness {
-            let SleepCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TingleComUserCell", for: indexPath) as! TingleComUserCell
-            SleepCell.tone = TingleCommunityController.BrushingAids[indexPath.row]
-            return SleepCell
+            let DelicateTriggersCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TingleComUserCell", for: indexPath) as! TingleComUserCell
+            DelicateTriggersCell.tone = TingleCommunityController.BrushingAids[indexPath.row]
+            return DelicateTriggersCell
         }
-        let SleepCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentmeageUserCell", for: indexPath) as! RecentmeageUserCell
-        SleepCell.tone = SleepAids[indexPath.row]
-        SleepCell.ceramicSounds.isUserInteractionEnabled = true
-        SleepCell.ceramicSounds.tag = indexPath.row
-        SleepCell.ceramicSounds.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(environmental(CanllINto:))))
-        return SleepCell
+        let DelicateTriggersCell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecentmeageUserCell", for: indexPath) as! RecentmeageUserCell
+        DelicateTriggersCell.tone = SleepAids[indexPath.row]
+        DelicateTriggersCell.ceramicSounds.isUserInteractionEnabled = true
+        DelicateTriggersCell.ceramicSounds.tag = indexPath.row
+        DelicateTriggersCell.ceramicSounds.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(environmental(CanllINto:))))
+        return DelicateTriggersCell
         
     }
     
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switchThumb.layer.cornerRadius = 13
+       
         if collectionView == mindfulness {
             if  let peaceful = TingleCommunityController.BrushingAids[indexPath.row].activeDatre["tingling"] as? Int {
                 self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.HealingArtistryView, "\(peaceful)")), animated: true)
             }
+            switchThumb.layer.shadowRadius = 2
+            switchThumb.layer.shadowOpacity = 0.2
             return
         }
+        mindfulness.showsHorizontalScrollIndicator = false
+        
         if  let peaceful = SleepAids[indexPath.row]["earCleaning"] as? Int {
+            switchThumb.layer.shadowRadius = 2
+            switchThumb.layer.shadowOpacity = 0.2
             self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.whisperConnection,  "\(peaceful)")), animated: true)
         }
     }
     
     
     @objc func environmental(CanllINto:UITapGestureRecognizer)  {
+        mindfulness.showsHorizontalScrollIndicator = false
         if  let peaceful = SleepAids[CanllINto.view?.tag ?? 0]["earCleaning"] as? Int {
+            switchThumb.layer.shadowRadius = 2
+            switchThumb.layer.shadowOpacity = 0.2
             self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (UIViewController.SoundNavigationPath.HealingArtistryView, "\(peaceful)" + CoreStreamingController.reconstructBaseLayer(interlacedScan: "&nCzablqltVviideejob=x1"))), animated: true)
        }
     }

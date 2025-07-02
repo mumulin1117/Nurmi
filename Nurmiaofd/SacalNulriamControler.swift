@@ -16,7 +16,15 @@ class SacalNulriamControler: UIViewController {
         return goujs
         
     }()
-   
+    private let waveformLayer: CAShapeLayer = {
+            let layer = CAShapeLayer()
+            layer.strokeColor = UIColor(red: 0.2, green: 0.6, blue: 0.8, alpha: 1).cgColor
+            layer.fillColor = UIColor.clear.cgColor
+            layer.lineWidth = 3
+            layer.lineCap = .round
+            return layer
+        }()
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()

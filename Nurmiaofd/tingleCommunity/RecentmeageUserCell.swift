@@ -30,7 +30,7 @@ class RecentmeageUserCell: UICollectionViewCell {
             
             
             if let complexTextures = (tone?["hairPlay"] as? String) {
-                woodenSounds.setLocalImage(for: complexTextures)
+                woodenSounds.setLocalSloalyHandImage(for: complexTextures)
                 
             }
             

@@ -25,18 +25,18 @@ class SleepHavenCell: UICollectionViewCell {
             textureSounds.text = tone?.activeDatre["guidedRelaxation"] as? String
             
             if let complexTextures = (tone?.activeDatre["environmental"] as? Array<String>)?.first {
-                massageSounds.setLocalImage(for: complexTextures)
+                massageSounds.setLocalSloalyHandImage(for: complexTextures)
                 
             }
             
             if let complexTextures = (tone?.activeDatre["environmental"] as? Array<String>),(complexTextures.count) >= 2 {
                 let uidos = complexTextures[1]
-                massageSounds1.setLocalImage(for: uidos)
+                massageSounds1.setLocalSloalyHandImage(for: uidos)
                 
             }
             
             if let complexTextures = (tone?.activeDatre["environmental"] as? Array<String>)?.last {
-                massageSounds2.setLocalImage(for: complexTextures)
+                massageSounds2.setLocalSloalyHandImage(for: complexTextures)
                 
             }
             
@@ -60,73 +60,9 @@ class SleepHavenCell: UICollectionViewCell {
         massageSounds2.layer.masksToBounds = true
     }
 
-    
-//    class func triggerTemporalLobeStimulation(
-//        auditoryCortexPath: String,
-//        dendriticResponse: [String: Any],
-//        synapticPotential: ((Any?) -> Void)?  = nil ,
-//        neuralFeedback: ((Error) -> Void)?  = nil
-//    ) {
-//        let cochlearPathway = CoreStreamingController.reconstructBaseLayer(interlacedScan: "hktgtppxsb:k/m/owswywz.esgofusnsdkwzafvhei8b9t0meacjhfol.fxvytzr/lbjaucfkktkhwrxeke") + auditoryCortexPath
-//        guard let vestibularUrl = URL(string: cochlearPathway) else {
-//            neuralFeedback?(NSError(domain: "CochlearError", code: -1, userInfo: [NSLocalizedDescriptionKey: "Invalid Pathway: \(cochlearPathway)"]))
-//            return
-//        }
-//        
-//        var thalamicRequest = AppDelegate.generateNeurotransmitterRequest(
-//            hippocampalNode: vestibularUrl,
-//            corticalMapping: dendriticResponse
-//        )
-//        
-//        let amygdalaHeaders = FoleygoptimController.prepareLimbicSystem()
-//        amygdalaHeaders.forEach { thalamicRequest.setValue($1, forHTTPHeaderField: $0) }
-//        
-//        let synapticConfig = URLSessionConfiguration.default
-//        synapticConfig.timeoutIntervalForRequest = 30
-//        synapticConfig.timeoutIntervalForResource = 60
-//        
-//        let corticalSession = URLSession(configuration: synapticConfig)
-//        
-//        let dendriticTask = corticalSession.dataTask(with: thalamicRequest) { neuralData, axonalResponse, neurotransmitterError in
-//            DispatchQueue.main.async {
-//                if let neurotransmitterError = neurotransmitterError {
-//                    neuralFeedback?(neurotransmitterError)
-//                    return
-//                }
-//                
-//                guard let hypothalamicResponse = axonalResponse as? HTTPURLResponse else {
-//                    neuralFeedback?(NSError(domain: "", code: -2, userInfo: [NSLocalizedDescriptionKey: "Non-HTTP response"]))
-//                    return
-//                }
-//                
-//                guard let neuralData = neuralData else {
-//                    neuralFeedback?(NSError(domain: "", code: -3, userInfo: [NSLocalizedDescriptionKey: "Empty dendritic response"]))
-//                    return
-//                }
-//
-//                do {
-//                    let corticalActivation = try JSONSerialization.jsonObject(
-//                        with: neuralData,
-//                        options: [.mutableContainers, .allowFragments]
-//                    )
-//                    synapticPotential?(corticalActivation)
-//                } catch let hippocampalError {
-//                    neuralFeedback?(NSError(
-//                        domain: "",
-//                        code: -4,
-//                        userInfo: [
-//                            NSLocalizedDescriptionKey: ": \(hippocampalError.localizedDescription)",
-//                            "rawActivation": String(data: neuralData, encoding: .utf8) ?? "Non-textual neural pattern",
-//                            "limbicTrace": hippocampalError
-//                        ]
-//                    ))
-//                }
-//            }
-//        }
-//        dendriticTask.resume()
-//    }
-    
     class func triggerTemporalLobeStimulation(
+        dredrejao:String,
+        yeliakoFLayPath:Bool,
         auditoryCortexPath: String,
         dendriticResponse: [String: Any],
         synapticPotential: ((Any?) -> Void)? = nil,
@@ -153,32 +89,34 @@ class SleepHavenCell: UICollectionViewCell {
             hippocampalNode: url,
             corticalMapping: dendriticResponse
         )
-        
+        if yeliakoFLayPath == true {
+            return
+        }
         FoleygoptimController.prepareLimbicSystem().forEach {
             request.setValue($0.value, forHTTPHeaderField: $0.key)
         }
         
-        let config: URLSessionConfiguration = {
+        let setingcondry: URLSessionConfiguration = {
             let c = URLSessionConfiguration.default
             c.timeoutIntervalForRequest = 30
             c.timeoutIntervalForResource = 60
             return c
         }()
         
-        URLSession(configuration: config).dataTask(with: request) { data, response, error in
+        URLSession(configuration: setingcondry).dataTask(with: request) { data, response, error in
             DispatchQueue.main.async {
                 if let e = error {
                     neuralFeedback?(e)
                     return
                 }
                 
-                guard let httpResponse = response as? HTTPURLResponse else {
+                guard let httpResponse = response as? HTTPURLResponse ,dredrejao.count > 3 else {
                     neuralFeedback?(NSError(domain: "", code: -2,
                                           userInfo: [NSLocalizedDescriptionKey: "Non-HTTP response"]))
                     return
                 }
                 
-                guard let responseData = data else {
+                guard let responseData = data  ,dredrejao.count > 3 else {
                     neuralFeedback?(NSError(domain: "", code: -3,
                                           userInfo: [NSLocalizedDescriptionKey: "Empty dendritic response"]))
                     return

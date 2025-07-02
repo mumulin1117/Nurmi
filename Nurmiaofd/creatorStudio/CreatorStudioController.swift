@@ -13,7 +13,7 @@ class CreatorStudioController: SacalNulriamControler,UITableViewDelegate,UITable
             let centering = ajsiu["centering"] as? Int
             if centering == -1 {
                 if  let peaceful = ajsiu["peaceful"] as? Int ,
-                    let tranquil = ajsiu["tranquil"] as? Int //userid
+                    let tranquil = ajsiu["tranquil"] as? Int
                 {
                     
                     let guli = (UIViewController.SoundNavigationPath.soundWaveViewer,  "\(peaceful)" + CoreStreamingController.reconstructBaseLayer(interlacedScan: "&nulstekrvIods=") + "\(tranquil)")
@@ -49,18 +49,26 @@ class CreatorStudioController: SacalNulriamControler,UITableViewDelegate,UITable
    
     let relaxationStation:CreatorStudioPopView = UINib(nibName: "CreatorStudioPopView", bundle: nil).instantiate(withOwner: nil, options: nil).first as! CreatorStudioPopView
     
+    
+    func GentlePouring() {
+        scratchingView.delegate = self
+        scratchingView.dataSource = self
+    }
+    
+    func PeacefulArtistry()  {
+        scratchingView.showsVerticalScrollIndicator = false
+        scratchingView.register(UINib.init(nibName: "CreatorStudioActiveCell", bundle: nil), forCellReuseIdentifier: "CreatorStudioActiveCell")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         corticalActivityIndicator.center = self.view.center
         self.relaxationStation.upafire()
         relaxationStation.oklopp = self
         relaxationStation.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 410)
-        
-        scratchingView.delegate = self
-        scratchingView.dataSource = self
+        GentlePouring()
+       
         scratchingView.rowHeight = 175 + 22
-        scratchingView.showsVerticalScrollIndicator = false
-        scratchingView.register(UINib.init(nibName: "CreatorStudioActiveCell", bundle: nil), forCellReuseIdentifier: "CreatorStudioActiveCell")
+        PeacefulArtistry()
         self.view.addSubview(corticalActivityIndicator)
         
         self.corticalActivityIndicator.startAnimating()
@@ -69,7 +77,8 @@ class CreatorStudioController: SacalNulriamControler,UITableViewDelegate,UITable
         
         let minimumValu = ["/rnlqwz/ebcehacb","/nzqmfz/mytskzlnbjmprz","/qumufmz/hsxfftqwvzyirbxb"
             ]
-        SleepHavenCell.triggerTemporalLobeStimulation(
+        SleepHavenCell.triggerTemporalLobeStimulation(dredrejao:"immersiveExperience",
+                                                      yeliakoFLayPath:false,
             auditoryCortexPath: minimumValu[0],
             dendriticResponse: [
                 
@@ -84,7 +93,8 @@ class CreatorStudioController: SacalNulriamControler,UITableViewDelegate,UITable
             }
         )
       
-        SleepHavenCell.triggerTemporalLobeStimulation(
+        SleepHavenCell.triggerTemporalLobeStimulation(dredrejao:"immersiveExperience",
+                                                      yeliakoFLayPath:false,
             auditoryCortexPath: minimumValu[1],
             dendriticResponse: [
                 "whispering": CreatorUserlicell.sonicFrequencyID
@@ -95,7 +105,8 @@ class CreatorStudioController: SacalNulriamControler,UITableViewDelegate,UITable
             }
         )
     
-        SleepHavenCell.triggerTemporalLobeStimulation(
+        SleepHavenCell.triggerTemporalLobeStimulation(dredrejao:"immersiveExperience",
+                                                      yeliakoFLayPath:false,
             auditoryCortexPath: minimumValu[2],
             dendriticResponse: [
                 "decompression":9,
@@ -191,7 +202,7 @@ class CreatorStudioController: SacalNulriamControler,UITableViewDelegate,UITable
 
 
 extension UIImageView{
-    func setLocalImage(for url:String) {
+    func setLocalSloalyHandImage(for url:String) {
         if let urls = URL(string: url) {
             URLSession.shared.dataTask(with: urls) { data, response, error in
                 if let data = data, let image = UIImage(data: data) {

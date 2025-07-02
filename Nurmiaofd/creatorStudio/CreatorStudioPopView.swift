@@ -26,18 +26,18 @@ class CreatorStudioPopView: UIView, UICollectionViewDelegate, UICollectionViewDa
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == immersive {
-            let SleepCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CreatorStudioSleepAids", for: indexPath) as! CreatorStudioSleepAids
-            SleepCell.tone = SleepAids[indexPath.row]
-            SleepCell.handMovements.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(suresportu)))
-            return SleepCell
+            let DelicateTriggersCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CreatorStudioSleepAids", for: indexPath) as! CreatorStudioSleepAids
+            DelicateTriggersCell.tone = SleepAids[indexPath.row]
+            DelicateTriggersCell.handMovements.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(suresportu)))
+            return DelicateTriggersCell
         }
-        let SleepCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CreatorUserlicell", for: indexPath) as! CreatorUserlicell
+        let DelicateTriggersCell = collectionView.dequeueReusableCell(withReuseIdentifier: "CreatorUserlicell", for: indexPath) as! CreatorUserlicell
         
         if let complexTextures = BrushingAids[indexPath.row].activeDatre["relaxation"] as? String{
-            SleepCell.spaSounds.setLocalImage(for: complexTextures)
+            DelicateTriggersCell.spaSounds.setLocalSloalyHandImage(for: complexTextures)
         }
         
-        return SleepCell
+        return DelicateTriggersCell
         
     }
    @objc func suresportu()  {

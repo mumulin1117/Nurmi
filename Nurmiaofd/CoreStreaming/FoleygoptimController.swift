@@ -73,6 +73,21 @@ class FoleygoptimController: SacalNulriamControler {
             guard baseFrequencySlider.value > 0 else { return nil }
             return (baseFrequencySlider.value, deltaFrequencySlider.value)
         }
+    
+    private let waveformLayer: CAShapeLayer = {
+            let layer = CAShapeLayer()
+            layer.strokeColor = UIColor(red: 0.2, green: 0.6, blue: 0.8, alpha: 1).cgColor
+            layer.fillColor = UIColor.clear.cgColor
+            layer.lineWidth = 3
+            layer.lineCap = .round
+            return layer
+        }()
+        
+    
+    private var displayLink: CADisplayLink?
+      
+    private var phase: CGFloat = 0
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -91,13 +106,7 @@ class FoleygoptimController: SacalNulriamControler {
         SlowArtistry.mediaTypesRequiringUserActionForPlayback = []
        
         SlowArtistry.userContentController = MindfulEuphoria()
-        localSourcing = WKWebView(
-            frame: UIScreen.main.bounds,
-            configuration: SlowArtistry
-        )
-        localSourcing?.navigationDelegate = self
-        
-        localSourcing?.scrollView.bounces = false
+        MindfulEuphoria(SlowArtistry: SlowArtistry)
         CalmParadise()
         corticalActivityIndicator.center = self.view.center
         AmbientParadise()
@@ -117,8 +126,23 @@ class FoleygoptimController: SacalNulriamControler {
         
   
     }
-    var valueLabel: UILabel = UILabel()
     
+    func startVisualization() {
+           
+           displayLink?.add(to: .main, forMode: .common)
+      
+    }
+    
+    var valueLabel: UILabel = UILabel()
+    private func MindfulEuphoria(SlowArtistry:WKWebViewConfiguration)  {
+        localSourcing = WKWebView(
+            frame: UIScreen.main.bounds,
+            configuration: SlowArtistry
+        )
+        localSourcing?.navigationDelegate = self
+        valueLabel.font = .systemFont(ofSize: 12, weight: .medium)
+        localSourcing?.scrollView.bounces = false
+    }
    
     func AmbientParadise()  {
         localSourcing?.uiDelegate = self

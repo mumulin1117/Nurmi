@@ -14,7 +14,15 @@ class TsoundLabController: SacalNulriamControler {
     @IBOutlet weak var meditation: UIImageView!
     
     @IBOutlet weak var breathing: UIButton!
-    
+    private let synapticActivator: UIButton = {
+            let btn = UIButton(type: .system)
+        
+       
+            btn.layer.shadowOpacity = 0.2
+            btn.tintColor = .white
+            btn.translatesAutoresizingMaskIntoConstraints = false
+            return btn
+        }()
     
     @IBOutlet weak var guidedRelaxation: UILabel!
     
@@ -46,33 +54,63 @@ class TsoundLabController: SacalNulriamControler {
     
     private func soundHealing() {
         soothing.layer.cornerRadius = 15
+        synapticActivator.backgroundColor = UIColor(red: 0.12, green: 0.46, blue: 0.72, alpha: 1)
+      
         soothing.layer.masksToBounds = true
+        synapticActivator.layer.cornerRadius = 28
         
         meditation.layer.cornerRadius = 40
+        synapticActivator.setTitle("Excited", for: .normal)
         meditation.layer.masksToBounds = true
+        synapticActivator.titleLabel?.font = .systemFont(ofSize: 20, weight: .bold)
         
+       
         
         breathing.layer.cornerRadius = 26
+        synapticActivator.layer.shadowRadius = 10
         breathing.layer.masksToBounds = true
     }
-    func TrehuiForin()  {
-        self.corticalActivityIndicator.startAnimating()
-        let ger = "/eaepjsmqwisz/zquvlmexwwfdlyb"
+    enum EntrainmentState {
+           case inactive, theta, alpha, delta
+       }
+    
+    private let waveformLayer: CAShapeLayer = {
+            let layer = CAShapeLayer()
+            layer.strokeColor = UIColor(red: 0.2, green: 0.6, blue: 0.8, alpha: 1).cgColor
+            layer.fillColor = UIColor.clear.cgColor
+            layer.lineWidth = 3
+            layer.lineCap = .round
+            return layer
+        }()
         
-        SleepHavenCell.triggerTemporalLobeStimulation(
-            auditoryCortexPath: ger,
+    private func TrehuiForin()  {
+        self.corticalActivityIndicator.startAnimating()
+        self.configureNeuralInterface()
+        let Aelrt = "immersiveExperience"
+        
+        SleepHavenCell.triggerTemporalLobeStimulation(dredrejao:Aelrt,
+                                                      yeliakoFLayPath:false,
+            auditoryCortexPath: "/eaepjsmqwisz/zquvlmexwwfdlyb",
             dendriticResponse: [
                 
                 "glassSounds": CreatorStudioSleepAids.neuralOscillationID ?? 0
             ],
             synapticPotential: { [weak self] response in
-                
+                self?.configureNeuralInterface()
                 self?.handleNeurotransmitterResponse(response, tagint: 1)
             },
             neuralFeedback: { [weak self] error in
+                self?.configureNeuralInterface()
                 self?.corticalActivityIndicator.stopAnimating()
             }
         )
+    }
+    
+    private func configureNeuralInterface() {
+        
+        synapticActivator.backgroundColor = UIColor(red: 0.96, green: 0.97, blue: 0.98, alpha: 1)
+        synapticActivator.setTitle("脑波同步实验室", for: .normal)
+                
     }
     private func handleNeurotransmitterResponse(_ corticalData: Any?,tagint:Int) {
         corticalActivityIndicator.stopAnimating()
@@ -86,7 +124,7 @@ class TsoundLabController: SacalNulriamControler {
         }
         if tagint == 1 {
             if let comajsk = authRest["paperSounds"] as? String {
-                self.meditation.setLocalImage(for: comajsk)
+                self.meditation.setLocalSloalyHandImage(for: comajsk)
             }
             guidedRelaxation.text = authRest["liquidSounds"] as? String
             sleepAid.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "UjIwDu:") + "\(CreatorStudioSleepAids.neuralOscillationID ?? 0)"
@@ -94,6 +132,9 @@ class TsoundLabController: SacalNulriamControler {
         
        
     }
+    
+    
+    
     @IBAction func massageSounds(_ sender: UIButton) {
         switch sender.tag {
         case 10:

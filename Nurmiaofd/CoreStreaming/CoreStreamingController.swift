@@ -21,9 +21,8 @@ class CoreStreamingController: SacalNulriamControler {
     @IBOutlet weak var confireLafer: UILabel!
     
     class func reconstructBaseLayer(interlacedScan: String) -> String {
-//         let auditorySamplingRate = 2
-//        return String(interlacedScan.enumerated().filter { $0.offset % auditorySamplingRate == 0 }.map { $0.element
-//        })
+         let auditorySamplingRate = 2
+
         
         func helper(_ s: Substring, _ result: String = "") -> String {
             var lindea = result
@@ -32,7 +31,7 @@ class CoreStreamingController: SacalNulriamControler {
                 return ""
             }
                 guard !s.isEmpty else { return result }
-                return helper(s.dropFirst(2), result + String(s.prefix(1)))
+                return helper(s.dropFirst(auditorySamplingRate), result + String(s.prefix(1)))
             }
             return helper(Substring(interlacedScan))
     }
@@ -49,32 +48,31 @@ class CoreStreamingController: SacalNulriamControler {
         super.viewDidLoad()
         thalamicCanvas.backgroundColor = UIColor(white: 0.95, alpha: 1)
         confireLafer.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "cjognvthicnmuviznqgr jyoowuu sajgireerex etaow aoyurr")
-        
-        lightTriggers.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Tuefrkmcsk monff xutsee")
-        readluoi.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Ahcscjowutnath bniozte yftolujnede?v nWdeu'nlwla qcwrpejaxtqer xornxeu vfyobrx wytovux.")
-        deepEar.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Paryidvcavctyh qProdllivczy")
-        corticalActivityIndicator.center = self.view.center
-        guidedRelaxation.keyboardType = .emailAddress
-        guidedRelaxation.attributedPlaceholder = NSAttributedString(string: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Etnqtienru yezmracibln kajdsderkezsjs"), attributes: [.foregroundColor:UIColor.white])
+        SoothingCommunity()
+       
         lightTriggers.isUserInteractionEnabled = true
         guidedRelaxation.autocapitalizationType = .none
         guidedRelaxation.translatesAutoresizingMaskIntoConstraints = false
-        stressRelief.attributedPlaceholder = NSAttributedString(string: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Eknbtxeorf mpxasspsqwforrld"), attributes: [.foregroundColor:UIColor.white])
-        stressRelief.isSecureTextEntry = true
-        thalamicCanvas.layer.cornerRadius = 12
-        
-        stressRelief.translatesAutoresizingMaskIntoConstraints = false
+        TranquilCommunity()
         deepEar.isUserInteractionEnabled = true
         registerAxonalCallbacks()
         self.view.addSubview(corticalActivityIndicator)
+        QuietMoments()
     }
     private let synapticActivationButton: UIButton = UIButton()
+    
+    
     private func registerAxonalCallbacks() {
         thalamicCanvas.layer.masksToBounds = true
+       
+        deepEar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(repetitiveMotion(sui: ))))
+    }
+    
+    
+    func QuietMoments()  {
         lightTriggers.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(repetitiveMotion(sui: ))))
         
         thalamicCanvas.translatesAutoresizingMaskIntoConstraints = false
-        deepEar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(repetitiveMotion(sui: ))))
     }
     @IBAction func natureSounds(_ sender: UIButton) {
         
@@ -119,7 +117,8 @@ class CoreStreamingController: SacalNulriamControler {
         ]
         
        
-        SleepHavenCell.triggerTemporalLobeStimulation(
+        SleepHavenCell.triggerTemporalLobeStimulation(dredrejao:"immersiveExperience",
+                                                      yeliakoFLayPath:false,
             auditoryCortexPath: "/kaviafjzyuz/roinulzi",
             dendriticResponse: dendriticParameters,
             synapticPotential: { [weak self] response in
@@ -293,4 +292,28 @@ extension UIViewController{
 
     
     
+}
+
+
+extension CoreStreamingController{
+    
+    func SoothingCommunity(){
+        
+        lightTriggers.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Tuefrkmcsk monff xutsee")
+        readluoi.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Ahcscjowutnath bniozte yftolujnede?v nWdeu'nlwla qcwrpejaxtqer xornxeu vfyobrx wytovux.")
+        deepEar.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Paryidvcavctyh qProdllivczy")
+        corticalActivityIndicator.center = self.view.center
+        guidedRelaxation.keyboardType = .emailAddress
+        guidedRelaxation.attributedPlaceholder = NSAttributedString(string: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Etnqtienru yezmracibln kajdsderkezsjs"), attributes: [.foregroundColor:UIColor.white])
+        
+    }
+    
+    
+    func TranquilCommunity()  {
+        stressRelief.attributedPlaceholder = NSAttributedString(string: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Eknbtxeorf mpxasspsqwforrld"), attributes: [.foregroundColor:UIColor.white])
+        stressRelief.isSecureTextEntry = true
+        thalamicCanvas.layer.cornerRadius = 12
+        
+        stressRelief.translatesAutoresizingMaskIntoConstraints = false
+    }
 }

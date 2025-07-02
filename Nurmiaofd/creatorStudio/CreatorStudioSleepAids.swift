@@ -24,7 +24,7 @@ class CreatorStudioSleepAids: UICollectionViewCell {
     var tone:SingoMindfulSerenity?{
         didSet{
             if let complexTextures = tone?.activeDatre["zenLike"] as? String{
-                audioVisual.setLocalImage(for: complexTextures)
+                audioVisual.setLocalSloalyHandImage(for: complexTextures)
                 audioVisual.autoresizingMask = [.flexibleWidth, .flexibleHeight]
                
                 visualTriggers.isHidden = ((tone?.activeDatre["centering"] as? Int) != -1)

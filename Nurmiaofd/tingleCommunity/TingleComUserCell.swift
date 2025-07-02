@@ -37,7 +37,7 @@ class TingleComUserCell: UICollectionViewCell {
             
             
             if let complexTextures = (tone?.activeDatre["relaxation"] as? String) {
-                woodenSounds.setLocalImage(for: complexTextures)
+                woodenSounds.setLocalSloalyHandImage(for: complexTextures)
             }
             
         }

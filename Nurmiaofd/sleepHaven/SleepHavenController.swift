@@ -11,7 +11,7 @@ class SleepHavenController: SacalNulriamControler {
     private let parasympatheticCanvas: UIView = {
             
         let view = UIView()
-        view.backgroundColor = UIColor(red: 0.98, green: 0.95, blue: 0.92, alpha: 1)
+        
         view.layer.cornerRadius = 16
    
         return view
@@ -36,10 +36,12 @@ class SleepHavenController: SacalNulriamControler {
         super.viewDidLoad()
         corticalActivityIndicator.center = self.view.center
         let lauio = UICollectionViewFlowLayout.init()
+        parasympatheticCanvas.backgroundColor = UIColor(red: 0.98, green: 0.95, blue: 0.92, alpha: 1)
         lauio.minimumLineSpacing = 20
         parasympatheticCanvas.layer.borderWidth = 1
        
         lauio.minimumInteritemSpacing = 20
+        parasympatheticCanvas.backgroundColor = UIColor(red: 0.98, green: 0.95, blue: 0.92, alpha: 1)
         lauio.scrollDirection = .vertical
         parasympatheticCanvas.layer.borderColor = UIColor(white: 0.9, alpha: 1).cgColor
        
@@ -56,12 +58,14 @@ class SleepHavenController: SacalNulriamControler {
     
     private func currentCoherence()  {
         pureSounds.dataSource = self
+        corticalActivityIndicator.center = self.view.center
         pureSounds.register(UINib(nibName: "SleepHavenCell", bundle: nil), forCellWithReuseIdentifier: "SleepHavenCell")
     }
     
     
     private func configureAutonomicInterface()  {
         pureSounds.backgroundColor = .clear
+        corticalActivityIndicator.center = self.view.center
         pureSounds.delegate = self
     }
     
@@ -80,7 +84,8 @@ class SleepHavenController: SacalNulriamControler {
         let OIAn = "/sndkccgzfctdxdz/xyadanwmayz"
         
         
-        SleepHavenCell.triggerTemporalLobeStimulation(
+        SleepHavenCell.triggerTemporalLobeStimulation(dredrejao:"immersiveExperience",
+                                                      yeliakoFLayPath:false,
             auditoryCortexPath: OIAn,
             dendriticResponse: minimumValu,
             synapticPotential: { [weak self] response in
@@ -130,27 +135,23 @@ class SleepHavenController: SacalNulriamControler {
         if sender ==  drawingSounds{
             currentPhase.backgroundColor = UIColor(red: 0.4, green: 0.7, blue: 0.9, alpha: 1)
             currentPhase.layer.cornerRadius = 20
-            drawingSounds.isSelected = true
-            craftingSounds.isSelected = false
-            distractionFree.isSelected = false
+            Vdfuiep(ethse:(true,false,false))
             UIoshPrefresh(taignmy:1)
         }
         
         if sender ==  craftingSounds{
             currentPhase.backgroundColor = UIColor(red: 0.4, green: 0.7, blue: 0.9, alpha: 1)
             currentPhase.layer.cornerRadius = 20
-            drawingSounds.isSelected = false
-            craftingSounds.isSelected = true
-            distractionFree.isSelected = false
+           
+            Vdfuiep(ethse:(false,true,false))
             UIoshPrefresh(taignmy:3)
         }
         
         if sender ==  distractionFree{
             currentPhase.backgroundColor = UIColor(red: 0.4, green: 0.7, blue: 0.9, alpha: 1)
             currentPhase.layer.cornerRadius = 20
-            drawingSounds.isSelected = false
-            craftingSounds.isSelected = false
-            distractionFree.isSelected = true
+         
+            Vdfuiep(ethse:(false,false,true))
             UIoshPrefresh(taignmy:2)
         }
         
@@ -159,9 +160,11 @@ class SleepHavenController: SacalNulriamControler {
         }
         
     }
+    
+  
     private let pacingCircle: UIView = {
            let view = UIView()
-           view.backgroundColor = UIColor(red: 0.4, green: 0.7, blue: 0.9, alpha: 1)
+        
            view.layer.cornerRadius = 20
            return view
       
@@ -171,6 +174,13 @@ class SleepHavenController: SacalNulriamControler {
            case inhalation
            case exhalation
        }
+    
+    func Vdfuiep(ethse:(Bool,Bool,Bool))  {
+        drawingSounds.isSelected = ethse.0
+        craftingSounds.isSelected = ethse.1
+        pacingCircle.backgroundColor = UIColor(red: 0.4, green: 0.7, blue: 0.9, alpha: 1)
+        distractionFree.isSelected = ethse.2
+    }
 }
 
 
