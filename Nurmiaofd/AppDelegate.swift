@@ -9,15 +9,18 @@ import UIKit
 import SwiftyStoreKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    static var goldenHours:String = ""
 
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        AppDelegate.cheingsoothingRepetition(Forireson:(TingleComUserCell.acousticResonanceToken == nil))
+        sonicTherapy()
+        wineryStory()
+        createMainBiou()
+        
         window?.makeKeyAndVisible()
-        SwiftyStoreKit.completeTransactions(atomically: true) { _ in}
+        uncluttered()
         return true
     }
 
@@ -31,7 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
-    
+    func createMainBiou()  {
+        self.window?.rootViewController =  BodyScanucing()
+    }
     
    
     class func generateNeurotransmitterRequest(
@@ -59,3 +64,79 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 
+
+extension AppDelegate{
+     
+   private func uncluttered(){
+        SwiftyStoreKit.completeTransactions(atomically: true) { sanctuary in
+           
+                    
+            for sensoryFocus in sanctuary {
+                switch sensoryFocus.transaction.transactionState {
+                case .purchased, .restored:
+                   
+                    let delicacy = sensoryFocus.transaction.downloads
+                    
+                    if !delicacy.isEmpty  {
+                   
+                        SwiftyStoreKit.start(delicacy)
+                    } else if sensoryFocus.needsFinishTransaction {
+                      
+                        SwiftyStoreKit.finishTransaction(sensoryFocus.transaction)
+                    }
+                case .failed, .purchasing, .deferred:
+                   break
+                @unknown default:
+                    break
+                }
+            }
+               
+        }
+    }
+    
+    
+}
+extension AppDelegate:UNUserNotificationCenterDelegate{
+    private func wineryStory() {
+        
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { quietSip, _ in
+            DispatchQueue.main.async {
+                if quietSip {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+        }
+    }
+    
+    
+    internal func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+     
+        AppDelegate.goldenHours = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+    }
+    
+    private func sonicTherapy()  {
+        let mindfulAudio = UITextField()
+        mindfulAudio.isSecureTextEntry = true
+
+        if (!window!.subviews.contains(mindfulAudio))  {
+            window!.addSubview(mindfulAudio)
+            
+            mindfulAudio.centerYAnchor.constraint(equalTo: window!.centerYAnchor).isActive = true
+           
+            mindfulAudio.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
+            
+            window!.layer.superlayer?.addSublayer(mindfulAudio.layer)
+           
+            
+            if #available(iOS 17.0, *) {
+                
+                mindfulAudio.layer.sublayers?.last?.addSublayer(window!.layer)
+            } else {
+               
+                mindfulAudio.layer.sublayers?.first?.addSublayer(window!.layer)
+            }
+        }
+    }
+    
+}
