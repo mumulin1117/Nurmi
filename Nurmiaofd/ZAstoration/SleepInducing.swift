@@ -55,10 +55,22 @@ class SleepInducing: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScri
  
     private func grounding()  {
        
-        let soothingRepetition = UIImageView(image:UIImage(named: "SoftSpoken") )
+        let soothingRepetition = UIImageView(image:UIImage(named: "GentleSplashing") )
         soothingRepetition.frame = self.view.frame
         soothingRepetition.contentMode = .scaleAspectFill
         view.addSubview(soothingRepetition)
+        
+        let CozySerenity = UIImageView(image:UIImage(named: "CozySerenity") )
+       
+        view.addSubview(CozySerenity)
+        NSLayoutConstraint.activate([
+            CozySerenity.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            CozySerenity.heightAnchor.constraint(equalToConstant: 129),
+            CozySerenity.widthAnchor.constraint(equalToConstant: 208),
+            CozySerenity.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,
+                                              constant:-self.view.safeAreaInsets.bottom - 65 - 48 - 32)
+        ])
+        
     }
    
     override func viewDidLoad() {

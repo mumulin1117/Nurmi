@@ -30,7 +30,7 @@ class NoiseReduction: UIViewController ,CLLocationManagerDelegate {
     private func subtleVariations()  {
        
         
-        let gentleTouch = UIImageView(image:UIImage(named: "SoftSpoken") )
+        let gentleTouch = UIImageView(image:UIImage(named: "GentleSplashing") )
         gentleTouch.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         view.addSubview(gentleTouch)
     }
@@ -60,8 +60,16 @@ class NoiseReduction: UIViewController ,CLLocationManagerDelegate {
         ])
         
       
-        
-        
+        let CozySerenity = UIImageView(image:UIImage(named: "CozySerenity") )
+       
+        view.addSubview(CozySerenity)
+        NSLayoutConstraint.activate([
+            CozySerenity.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            CozySerenity.heightAnchor.constraint(equalToConstant: 129),
+            CozySerenity.widthAnchor.constraint(equalToConstant: 208),
+            CozySerenity.bottomAnchor.constraint(equalTo: ceramicSounds.topAnchor,
+                                              constant: -32)
+        ])
         
                 
         tingleInducing()
