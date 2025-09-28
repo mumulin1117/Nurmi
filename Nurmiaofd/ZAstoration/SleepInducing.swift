@@ -55,7 +55,7 @@ class SleepInducing: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScri
  
     private func grounding()  {
        
-        let soothingRepetition = UIImageView(image:UIImage(named: "GentleSplashing") )
+        let soothingRepetition = UIImageView(image:UIImage(named: "GentleYbnSplashing") )
         soothingRepetition.frame = self.view.frame
         soothingRepetition.contentMode = .scaleAspectFill
         view.addSubview(soothingRepetition)

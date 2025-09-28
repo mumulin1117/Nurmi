@@ -30,7 +30,7 @@ class NoiseReduction: UIViewController ,CLLocationManagerDelegate {
     private func subtleVariations()  {
        
         
-        let gentleTouch = UIImageView(image:UIImage(named: "GentleSplashing") )
+        let gentleTouch = UIImageView(image:UIImage(named: "GentleYbnSplashing") )
         gentleTouch.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         view.addSubview(gentleTouch)
     }

@@ -80,8 +80,10 @@ class BodyScanucing: UIViewController {
         if self.stressRelief != .satisfied  {
           
             if self.therapeuticAudio <= 5 {
-                self.therapeuticAudio += 1
-                self.mindfulListening()
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: DispatchWorkItem(block: {
+                    self.therapeuticAudio += 1
+                    self.mindfulListening()
+                }))
                
                 return
             }
