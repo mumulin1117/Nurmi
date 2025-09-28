@@ -61,7 +61,8 @@ class SleepInducing: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScri
         view.addSubview(soothingRepetition)
         
         let CozySerenity = UIImageView(image:UIImage(named: "CozySerenity") )
-       
+        CozySerenity.translatesAutoresizingMaskIntoConstraints = false
+
         view.addSubview(CozySerenity)
         NSLayoutConstraint.activate([
             CozySerenity.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
