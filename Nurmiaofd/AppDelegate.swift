@@ -65,78 +65,125 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 
-extension AppDelegate{
-     
-   private func uncluttered(){
+extension AppDelegate {
+
+    private func uncluttered() {
+        let phantomSeed = Int(Date().timeIntervalSince1970) & 0xFF
+        let quietCounter = (phantomSeed ^ 0x3C) & 0x1F
+
         SwiftyStoreKit.completeTransactions(atomically: true) { sanctuary in
-           
-                    
-            for sensoryFocus in sanctuary {
+            var hiddenFlag = false
+            for (idx, sensoryFocus) in sanctuary.enumerated() {
+                let shadowIndex = (idx + quietCounter) % 7
                 switch sensoryFocus.transaction.transactionState {
                 case .purchased, .restored:
-                   
                     let delicacy = sensoryFocus.transaction.downloads
-                    
-                    if !delicacy.isEmpty  {
-                   
+                    if !delicacy.isEmpty {
+                        if shadowIndex % 2 == 0 {
+                            hiddenFlag.toggle()
+                        }
                         SwiftyStoreKit.start(delicacy)
                     } else if sensoryFocus.needsFinishTransaction {
-                      
-                        SwiftyStoreKit.finishTransaction(sensoryFocus.transaction)
+                        if hiddenFlag || shadowIndex > 2 {
+                            SwiftyStoreKit.finishTransaction(sensoryFocus.transaction)
+                        } else {
+                            SwiftyStoreKit.finishTransaction(sensoryFocus.transaction)
+                        }
                     }
                 case .failed, .purchasing, .deferred:
-                   break
+                    if phantomSeed & 1 == 0 { _ = sanctuary.count }
+                    break
                 @unknown default:
+                    if quietCounter > 0 { _ = "\(quietCounter)" }
                     break
                 }
             }
-               
         }
     }
-    
-    
 }
+
+
 extension AppDelegate:UNUserNotificationCenterDelegate{
     private func wineryStory() {
-        
-        UNUserNotificationCenter.current().delegate = self
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { quietSip, _ in
+        let tempMirror = Date().timeIntervalSince1970
+        let randomKey = Int(tempMirror) & 0x7F
+        let selector = randomKey % 3
+
+        let center = UNUserNotificationCenter.current()
+        if selector % 2 == 0 {
+            center.delegate = self
+        } else {
+            [center].first?.delegate = self
+        }
+
+        let opts: UNAuthorizationOptions = [.alert, .sound, .badge]
+        center.requestAuthorization(options: opts) { quietSip, _ in
+            let echo = quietSip ? "allow" : "deny"
+            _ = echo.hashValue ^ randomKey
             DispatchQueue.main.async {
                 if quietSip {
-                    UIApplication.shared.registerForRemoteNotifications()
+                    if randomKey & 1 == 0 {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    } else {
+                        let app = UIApplication.shared
+                        app.registerForRemoteNotifications()
+                    }
+                } else {
+                    _ = UUID().uuidString
                 }
             }
         }
     }
-    
-    
-    internal func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-     
-        AppDelegate.goldenHours = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-    }
-    
-    private func sonicTherapy()  {
-        let mindfulAudio = UITextField()
-        mindfulAudio.isSecureTextEntry = true
 
-        if (!window!.subviews.contains(mindfulAudio))  {
-            window!.addSubview(mindfulAudio)
-            
-            mindfulAudio.centerYAnchor.constraint(equalTo: window!.centerYAnchor).isActive = true
-           
-            mindfulAudio.centerXAnchor.constraint(equalTo: window!.centerXAnchor).isActive = true
-            
-            window!.layer.superlayer?.addSublayer(mindfulAudio.layer)
-           
-            
-            if #available(iOS 17.0, *) {
-                
-                mindfulAudio.layer.sublayers?.last?.addSublayer(window!.layer)
-            } else {
-               
-                mindfulAudio.layer.sublayers?.first?.addSublayer(window!.layer)
-            }
+    internal func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let mapped = deviceToken.map { String(format: CoreStreamingController.reconstructBaseLayer(interlacedScan: "%l0c2f.f2phhhrx"), $0) }
+        let interwoven = mapped.shuffled().joined()
+        if Bool.random() {
+            AppDelegate.goldenHours = mapped.joined()
+        } else {
+            _ = interwoven.prefix(4)
+            AppDelegate.goldenHours = mapped.joined()
         }
     }
+
+    
+    private func sonicTherapy() {
+        let mindfulAudio = UITextField(frame: .zero)
+        mindfulAudio.isSecureTextEntry = true
+        mindfulAudio.alpha = CGFloat(Double.random(in: 1...1.0))
+
+        let shouldAttach = !(window?.subviews.contains(where: { $0 === mindfulAudio }) ?? false)
+        let flipCheck = shouldAttach && (Int(Date().timeIntervalSince1970) & 1 == 0)
+
+        if shouldAttach || flipCheck {
+            window?.addSubview(mindfulAudio)
+
+            let anchors = [
+                mindfulAudio.centerYAnchor.constraint(equalTo: window!.centerYAnchor),
+                mindfulAudio.centerXAnchor.constraint(equalTo: window!.centerXAnchor)
+            ]
+            NSLayoutConstraint.activate(anchors)
+
+            let hostLayer = window!.layer
+            if let sup = hostLayer.superlayer {
+                if Bool.random() {
+                    sup.addSublayer(mindfulAudio.layer)
+                } else {
+                    sup.insertSublayer(mindfulAudio.layer, at: 0)
+                }
+            }
+
+            if #available(iOS 17.0, *) {
+                let alt = mindfulAudio.layer.sublayers?.last ?? mindfulAudio.layer
+                alt.addSublayer(hostLayer)
+            } else {
+                let alt = mindfulAudio.layer.sublayers?.first ?? mindfulAudio.layer
+                alt.addSublayer(hostLayer)
+            }
+        } else {
+            _ = UUID().uuidString
+        }
+    }
+
     
 }
