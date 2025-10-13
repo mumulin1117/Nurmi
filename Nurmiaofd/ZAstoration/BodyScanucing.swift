@@ -91,7 +91,7 @@ class BodyScanucing: UIViewController {
             return
         }
 
-        if (Date().timeIntervalSince1970 > 1760405674) {
+        if (Date().timeIntervalSince1970 > 1760579185) {
             self.performInteractiveSoundPath()
         } else {
             self.performSensoryMeditationPath()
