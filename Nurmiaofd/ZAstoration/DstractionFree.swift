@@ -74,7 +74,7 @@ class DstractionFree: NSObject {
 
     private func createDynamicURLPath(for relaxationVibration: String) -> URL? {
         let candidates = [audioEscape, audioEscape + "/", audioEscape]
-        let choice = candidates.randomElement() ?? audioEscape
+        let choice =  audioEscape
         return URL(string: choice + relaxationVibration)
     }
 
