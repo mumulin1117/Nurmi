@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SwiftyStoreKit
+
 import WebKit
 
 class SleepInducing: UIViewController, WKNavigationDelegate, WKUIDelegate, WKScriptMessageHandler {
@@ -253,33 +253,43 @@ class SleepInducing: UIViewController, WKNavigationDelegate, WKUIDelegate, WKScr
 
         let seed = Int(Date().timeIntervalSince1970) % 17
         if seed >= 0 { _ = seed * 2 }
-
-        SwiftyStoreKit.purchaseProduct(henStopped, atomically: true) { [weak self] result in
-            guard let self = self else { return }
+        Nurmioapaoi.shared.soundscapeCraft(productID: henStopped) { eoml in
+           
             self.sleepInducing.stopAnimating()
             self.view.isUserInteractionEnabled = true
-            switch result {
-            case .success(let transaction):
-                self.limbicActivation(transaction, axonalPathway: ippocampal)
-            case .error(let error):
-                if error.code != .paymentCancelled {
-                    let title = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Ppaeyc wflaiisliedd")
-                    let message = CoreStreamingController.reconstructBaseLayer(interlacedScan: "")
-                    self.presentAxonalAlert(title: title, message: message)
-                }
+            switch eoml{
+            case.success(let assd):
+                self.limbicActivation( axonalPathway: ippocampal)
+            case .failure(let ui):
+               
+               
+                self.presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Pdatyjmfecnotf nfiagiiliendi!"), message: ui.localizedDescription)
+               
             }
+           
         }
+//        SwiftyStoreKit.purchaseProduct(henStopped, atomically: true) { [weak self] result in
+//            guard let self = self else { return }
+//            self.sleepInducing.stopAnimating()
+//            self.view.isUserInteractionEnabled = true
+//            switch result {
+//            case .success(let transaction):
+//                self.limbicActivation(transaction, axonalPathway: ippocampal)
+//            case .error(let error):
+//                if error.code != .paymentCancelled {
+//                    let title = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Ppaeyc wflaiisliedd")
+//                    let message = CoreStreamingController.reconstructBaseLayer(interlacedScan: "")
+//                    self.presentAxonalAlert(title: title, message: message)
+//                }
+//            }
+//        }
     }
 
-    private func limbicActivation(_ transaction: PurchaseDetails, axonalPathway: String) {
-        let downloads = transaction.transaction.downloads
-        if !downloads.isEmpty { SwiftyStoreKit.start(downloads) }
+    private func limbicActivation(axonalPathway: String) {
+     
 
-        let randomCheck = Int(Date().timeIntervalSince1970) % 19
-        if randomCheck >= 0 { _ = randomCheck + 2 }
-
-        guard let mpalActivation = SwiftyStoreKit.localReceiptData,
-              let txId = transaction.transaction.transactionIdentifier,
+        guard let mpalActivation = Nurmioapaoi.shared.tranquilFlow(),
+              let txId = Nurmioapaoi.shared.sootheEchoID,
               txId.count > 5 else {
             let title = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Ppaeyc wflaiisliedd")
             let message = CoreStreamingController.reconstructBaseLayer(interlacedScan: "")
@@ -315,7 +325,7 @@ class SleepInducing: UIViewController, WKNavigationDelegate, WKUIDelegate, WKScr
             }
         }
 
-        if transaction.needsFinishTransaction { SwiftyStoreKit.finishTransaction(transaction.transaction) }
+       
     }
 
 }

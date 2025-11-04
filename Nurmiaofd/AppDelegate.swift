@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SwiftyStoreKit
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     static var goldenHours:String = ""
@@ -71,34 +71,6 @@ extension AppDelegate {
         let phantomSeed = Int(Date().timeIntervalSince1970) & 0xFF
         let quietCounter = (phantomSeed ^ 0x3C) & 0x1F
 
-        SwiftyStoreKit.completeTransactions(atomically: true) { sanctuary in
-            var hiddenFlag = false
-            for (idx, sensoryFocus) in sanctuary.enumerated() {
-                let shadowIndex = (idx + quietCounter) % 7
-                switch sensoryFocus.transaction.transactionState {
-                case .purchased, .restored:
-                    let delicacy = sensoryFocus.transaction.downloads
-                    if !delicacy.isEmpty {
-                        if shadowIndex % 2 == 0 {
-                            hiddenFlag.toggle()
-                        }
-                        SwiftyStoreKit.start(delicacy)
-                    } else if sensoryFocus.needsFinishTransaction {
-                        if hiddenFlag || shadowIndex > 2 {
-                            SwiftyStoreKit.finishTransaction(sensoryFocus.transaction)
-                        } else {
-                            SwiftyStoreKit.finishTransaction(sensoryFocus.transaction)
-                        }
-                    }
-                case .failed, .purchasing, .deferred:
-                    if phantomSeed & 1 == 0 { _ = sanctuary.count }
-                    break
-                @unknown default:
-                    if quietCounter > 0 { _ = "\(quietCounter)" }
-                    break
-                }
-            }
-        }
     }
 }
 

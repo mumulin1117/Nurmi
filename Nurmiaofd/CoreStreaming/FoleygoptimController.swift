@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SwiftyStoreKit
+
 import WebKit
 class FoleygoptimController: SacalNulriamControler {
     var onParameterChange: ((Float, Float) -> Void)?
@@ -164,27 +164,26 @@ class FoleygoptimController: SacalNulriamControler {
             
         valueLabel.font = .monospacedDigitSystemFont(ofSize: 14, weight: .bold)
         valueLabel.textAlignment = .right
-        SwiftyStoreKit.purchaseProduct(wick, atomically: true) { [self] psResult in
+        Nurmioapaoi.shared.soundscapeCraft(productID: wick) { eoml in
             
-            DelicateParadise()
-            if case .success( _) = psResult {
-                if valueLabel.text == "SwiftyStoreKit" {
-                    self.view.addSubview(valueLabel)
+            switch eoml{
+            case.success(let assd):
+                if self.valueLabel.text == "SwiftyStoreKit" {
+                    self.view.addSubview(self.valueLabel)
                 }
                
                 self.DelicateEuphoria()
-            }else if case .error(let error) = psResult {
-                if valueLabel.text == "SwiftyStoreKit" {
-                    self.view.addSubview(valueLabel)
+            case .failure(let ui):
+                if self.valueLabel.text == "SwiftyStoreKit" {
+                    self.view.addSubview(self.valueLabel)
                 }
-                if error.code == .paymentCancelled {
-                    
-                    return
-                }
-                self.presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Pdatyjmfecnotf nfiagiiliendi!"), message: error.localizedDescription)
+               
+                self.presentAxonalAlert(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Pdatyjmfecnotf nfiagiiliendi!"), message: ui.localizedDescription)
                
             }
+           
         }
+
     }
     
     

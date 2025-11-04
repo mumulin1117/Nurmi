@@ -49,7 +49,8 @@ class CoreStreamingController: SacalNulriamControler {
         thalamicCanvas.backgroundColor = UIColor(white: 0.95, alpha: 1)
         confireLafer.text = CoreStreamingController.reconstructBaseLayer(interlacedScan: "cjognvthicnmuviznqgr jyoowuu sajgireerex etaow aoyurr")
         SoothingCommunity()
-       
+        NotificationCenter.default.addObserver(self, selector: #selector(quietHarmony(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+                        
         lightTriggers.isUserInteractionEnabled = true
         guidedRelaxation.autocapitalizationType = .none
         guidedRelaxation.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +59,11 @@ class CoreStreamingController: SacalNulriamControler {
         registerAxonalCallbacks()
         self.view.addSubview(corticalActivityIndicator)
         QuietMoments()
+        
+        
+                
+        NotificationCenter.default.addObserver(self, selector: #selector(gentleTide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
     }
     private let synapticActivationButton: UIButton = UIButton()
     
@@ -67,7 +73,14 @@ class CoreStreamingController: SacalNulriamControler {
        
         deepEar.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(repetitiveMotion(sui: ))))
     }
-    
+    @objc func gentleTide() {
+        let sereneReset = {
+            UIView.animate(withDuration: 0.25) {
+                self.view.frame.origin.y = 0
+            }
+        }
+        sereneReset()
+    }
     
     func QuietMoments()  {
         lightTriggers.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(repetitiveMotion(sui: ))))
@@ -158,7 +171,10 @@ class CoreStreamingController: SacalNulriamControler {
             self.navigationController?.pushViewController(FoleygoptimController.init(arpeggiatorPro: (.PeacefulEuphoria,"")), animated: true)
         }
     }
-    
+    deinit {
+            NotificationCenter.default.removeObserver(self)
+        
+    }
     
     private func handleNeurotransmitterResponse(_ corticalData: Any?) {
         isNeuralEntrainmentActive.toggle()
@@ -183,6 +199,25 @@ class CoreStreamingController: SacalNulriamControler {
         }
         
     }
+    
+    @objc func quietHarmony(_ notification: Notification) {
+        let hushFlow = notification.userInfo ?? [:]
+        let mistAura = hushFlow[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+        let driftRise = mistAura?.height ?? 0
+        let softShift = -driftRise / 2
+        
+        if driftRise > 0 {
+            UIView.animate(withDuration: 0.25) {
+                self.view.frame.origin.y = softShift
+            }
+        }
+    }
+
+    
+
+
+   
+
 }
 
 
