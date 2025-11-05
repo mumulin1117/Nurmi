@@ -148,7 +148,6 @@
 				INFOPLIST_FILE = Nurmiaofd/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Nurmi;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Nurmi helps you connect with the community through creative sound experiences. Access to your camera allows us to enhance interactive activities where you can share your sensory creations and engage with others in real time.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nurmi helps you connect with like-minded individuals. By using your location, we can show you local activities and relevant content tailored to your area, creating a more personalized and enriching experience.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Nurmi provides a unique space for creating and enjoying soothing sounds together. We ask for microphone access so you can participate in immersive auditory experiences and share calming sounds with the community.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To enhance your experience, Nurmi lets you share your visual creations and moments inspired by sound. Access to your photo library allows you to easily upload and contribute your personal images to the community.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -187,7 +186,6 @@
 				INFOPLIST_FILE = Nurmiaofd/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Nurmi;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Nurmi helps you connect with the community through creative sound experiences. Access to your camera allows us to enhance interactive activities where you can share your sensory creations and engage with others in real time.";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Nurmi helps you connect with like-minded individuals. By using your location, we can show you local activities and relevant content tailored to your area, creating a more personalized and enriching experience.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Nurmi provides a unique space for creating and enjoying soothing sounds together. We ask for microphone access so you can participate in immersive auditory experiences and share calming sounds with the community.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "To enhance your experience, Nurmi lets you share your visual creations and moments inspired by sound. Access to your photo library allows you to easily upload and contribute your personal images to the community.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

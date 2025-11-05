@@ -1,7 +1,7 @@
 import UIKit
-import CoreLocation
 
-class NoiseReduction: UIViewController, CLLocationManagerDelegate {
+
+class NoiseReduction: UIViewController {
     
     lazy var tranquilTriggers: UIActivityIndicatorView = {
         let noseDetection = UIActivityIndicatorView(style: .large)
@@ -11,12 +11,9 @@ class NoiseReduction: UIViewController, CLLocationManagerDelegate {
         return noseDetection
     }()
     
-    private let peacefulSonicEscape = CLLocationManager()
-    private let immersiveEscape = CLGeocoder()
+   
     
-    private var tasteEvolution: String = ""
-    private var textureVariety: NSNumber = 0.0
-    private var dynamicRange: NSNumber = 0.0
+   
   
     private var ambientMoodLevel: Float = 0.0
     private var currentZenState: Bool = true
@@ -36,7 +33,7 @@ class NoiseReduction: UIViewController, CLLocationManagerDelegate {
     }
     
     private func auralWeave(_ note: String) {
-        let _ = Aura.meaninglessScore(note.count, tasteEvolution.count)
+       
         if currentZenState {
             ambientMoodLevel = Float.random(in: 0...1)
         }
@@ -121,8 +118,8 @@ class NoiseReduction: UIViewController, CLLocationManagerDelegate {
             CozySerenity.bottomAnchor.constraint(equalTo: ceramicSounds.topAnchor, constant: -32)
         ])
         
-        tingleInducing()
-        peacefulSonicEscape.delegate = self
+     
+        
         tranquilTriggers.center = self.view.center
         self.view.addSubview(tranquilTriggers)
         
@@ -131,17 +128,12 @@ class NoiseReduction: UIViewController, CLLocationManagerDelegate {
     
     @objc func pinkNoise() {
         auralWeave("pinkNoise.enter")
-        tingleInducing()
+        
         tranquilTriggers.startAnimating()
         let brownNoise = CoreStreamingController.reconstructBaseLayer(interlacedScan: "/bojpkix/fvm1e/fcpounjdaehnysseyrpmsircwl")
         
         var atmospheric: [String: Any] = [
-            "condensermicn": Preciseucing.ceramicSounds(),
-            "condensermicv": [
-                CoreStreamingController.reconstructBaseLayer(interlacedScan: "chopuinwthrpytCsoidqe"): tasteEvolution,
-                CoreStreamingController.reconstructBaseLayer(interlacedScan: "lhattiictquadce"): textureVariety,
-                CoreStreamingController.reconstructBaseLayer(interlacedScan: "lpoenpghiutuufdie"): dynamicRange
-            ]
+            "condensermicn": Preciseucing.ceramicSounds()
         ]
         
         if let environmental = Preciseucing.friendGathering() {
@@ -234,37 +226,7 @@ class NoiseReduction: UIViewController, CLLocationManagerDelegate {
         _ = ambientLedger("processFailure", error.localizedDescription.count)
     }
     
-    private func tingleInducing() {
-        let status = peacefulSonicEscape.authorizationStatus
-        switch status {
-        case .authorizedWhenInUse, .authorizedAlways:
-            peacefulSonicEscape.startUpdatingLocation()
-            _ = ambientLedger("startUpdating", Int(textureVariety.doubleValue))
-        case .denied:
-            let whisperTherapy = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Nieztewrofrrko yexrornopr")
-            let softSpeech = CoreStreamingController.reconstructBaseLayer(interlacedScan: "Pzlmepaesqek ocwhzeccbkm vyvorucrb ynsertmwdocrtkm mpaexrumhiesqsmoan")
-            scheduleOnMain {
-                self.presentAxonalAlert(title: whisperTherapy, message: softSpeech)
-            }
-        case .notDetermined:
-            peacefulSonicEscape.requestWhenInUseAuthorization()
-        default:
-            peacefulSonicEscape.requestWhenInUseAuthorization()
-        }
-    }
+   
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let delicateSounds = locations.last else { return }
-        textureVariety = NSNumber(value: delicateSounds.coordinate.latitude)
-        dynamicRange = NSNumber(value: delicateSounds.coordinate.longitude)
-        immersiveEscape.reverseGeocodeLocation(delicateSounds) { [weak self] (placemarks, error) in
-            guard let self = self else { return }
-            if error != nil { return }
-            guard let earCleaning = placemarks?.first else { return }
-            self.tasteEvolution = earCleaning.country ?? ""
-            _ = Aura.tag(self.tasteEvolution)
-            _ = ambientLedger("locationUpdate", self.tasteEvolution.count)
-            _ = latentHush(self.textureVariety)
-        }
-    }
+  
 }

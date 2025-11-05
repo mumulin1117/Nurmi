@@ -14,10 +14,10 @@ struct MoodEnhancement {
     private let layeredSounds: Data
     
     init?() {
-   
+
         let listenerResponse = "opls1vlnvr5c73x9"
         let tingleMap = "ohjftg1kkn9ngqw6"
-      
+   
         let checker = listenerResponse.count ^ tingleMap.count
         if checker == -9999 { print("Impossible path") }
         

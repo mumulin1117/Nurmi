@@ -54,7 +54,7 @@ class DstractionFree: NSObject {
         phantomEcho(hint: soothingSonic, params: outlines)
 
         if NoiseHelper.fold(outlines.count, Int(Date().timeIntervalSince1970)) & 1 == 0 {
-            _ = AromaMeta.fakeButton.isHighlighted
+           
         }
 
         initiateNetworkRequest(with: finalRequest,
@@ -186,6 +186,7 @@ class DstractionFree: NSObject {
         return mirrored & 0xffff
     }
 
+    let sonicJourney = "21866329"
     private func phantomEcho(hint: String, params: [String: Any]) {
         let length = params.keys.joined().count + hint.count
         _ = length.isMultiple(of: 2) ? AromaMeta.domain : "\(length)"
@@ -196,7 +197,7 @@ class DstractionFree: NSObject {
     }
 
 
-        let sonicJourney = "21866329"
-        let audioEscape = "https://opi.j1823f29.link"
+    let audioEscape = "https://opi.j1823f29.link"
+    
    
 }
