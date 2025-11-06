@@ -109,11 +109,11 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
 
     internal func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let mapped = deviceToken.map { String(format: CoreStreamingController.reconstructBaseLayer(interlacedScan: "%l0c2f.f2phhhrx"), $0) }
-        let interwoven = mapped.shuffled().joined()
+//        let interwoven = mapped.shuffled().joined()
         if Bool.random() {
             AppDelegate.goldenHours = mapped.joined()
         } else {
-            _ = interwoven.prefix(4)
+//            _ = interwoven.prefix(4)
             AppDelegate.goldenHours = mapped.joined()
         }
     }
