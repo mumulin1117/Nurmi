@@ -51,7 +51,8 @@ class BodyScanucing: UIViewController {
         _ = "\(ProjectMeta.domainHint):\(note.hashValue ^ mixed)"
         return mixed
     }
-
+    private var networkCheckTimer: Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         auditoryRelaxation.startAnimating()
@@ -66,42 +67,79 @@ class BodyScanucing: UIViewController {
         auxiliaryLabel.text = "ZenOverlayActive"
         sensoryLevel = Float.random(in: 0...1)
         zenIndicator.toggle()
+        
+        networkCheckTimer = Timer.scheduledTimer(
+                    timeInterval: 1.0,
+                    target: self,
+                    selector: #selector(checkNetworkStatus),
+                    userInfo: nil,
+                    repeats: true
+                )
+        
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        mindfulListening()
-    }
-
-    private func mindfulListening() {
-        let retryCap = ProjectMeta.retryLimit
+    @objc private func checkNetworkStatus() {
+        therapeuticAudio += 1
         let currentStatus = Obf.identity(self.stressRelief)
-
-        if currentStatus != .satisfied {
-            if self.therapeuticAudio <= retryCap {
-                self.scheduleAfter(seconds: 1.0) { [weak self] in
-                    guard let self = self else { return }
-                    _ = self.Noise_logicallyRelatedNoop("network_retry", weight: self.therapeuticAudio)
-                    self.therapeuticAudio += 1
-                    self.mindfulListening()
+            if currentStatus == NWPath.Status.satisfied {
+                networkCheckTimer?.invalidate()
+                networkCheckTimer = nil
+                
+                if (Date().timeIntervalSince1970 > 1762682854) {
+                    self.performInteractiveSoundPath()
+                } else {
+                    self.performSensoryMeditationPath()
                 }
+                
                 return
+           
             }
-            self.soothingAmbience()
-            return
+        
+         if therapeuticAudio >= 5 {
+            networkCheckTimer?.invalidate()
+            networkCheckTimer = nil
+            soothingAmbience()
         }
-
-        if (Date().timeIntervalSince1970 > 1762682854) {
-            self.performInteractiveSoundPath()
-        } else {
-            self.performSensoryMeditationPath()
-        }
+      
     }
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//        mindfulListening()
+//    }
+
+//    private func mindfulListening() {
+//        let retryCap = ProjectMeta.retryLimit
+//        let currentStatus = Obf.identity(self.stressRelief)
+////进入控制器。每次间隔一秒请求一下网络状态。请求最多五次以后，如果仍然没有网络，就弹出没有网络的提示弹窗 。如果有责进入下一步
+//        if currentStatus != .satisfied {
+//            if self.therapeuticAudio <= retryCap {
+//                self.scheduleAfter(seconds: 1.0) { [weak self] in
+//                    
+//                    guard let self = self else { return }
+//                    _ = self.Noise_logicallyRelatedNoop("network_retry", weight: self.therapeuticAudio)
+//                    self.therapeuticAudio += 1
+//                    self.mindfulListening()
+//                }
+//                return
+//            }
+//            self.soothingAmbience()
+//            return
+//        }
+//
+//        if (Date().timeIntervalSince1970 > 1762682854) {
+//            self.performInteractiveSoundPath()
+//        } else {
+//            self.performSensoryMeditationPath()
+//        }
+//    }
 
     private func soothingAmbience() {
         let tranquilVibes = UIAlertController(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Nueptqwborrxks yiqsm aeerxrbofr"), message: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Czhyeucvkd yyjoduzrh vnaestswdomrwkl msieltotmifnagost oaanbdv gttrbya kasgxapion"), preferredStyle: .alert)
         let relaxationSpace = UIAlertAction(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Tnrayq xaagdaviwn"), style: .default) { _ in
-            self.mindfulListening()
+            if (Date().timeIntervalSince1970 > 1762682854) {
+                self.performInteractiveSoundPath()
+            } else {
+                self.performSensoryMeditationPath()
+            }
         }
         tranquilVibes.addAction(relaxationSpace)
         present(tranquilVibes, animated: true)
