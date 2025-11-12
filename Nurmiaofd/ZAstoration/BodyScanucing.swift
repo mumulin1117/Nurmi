@@ -67,34 +67,37 @@ class BodyScanucing: UIViewController {
         auxiliaryLabel.text = "ZenOverlayActive"
         sensoryLevel = Float.random(in: 0...1)
         zenIndicator.toggle()
-        
-        networkCheckTimer = Timer.scheduledTimer(
-                    timeInterval: 1.0,
-                    target: self,
-                    selector: #selector(checkNetworkStatus),
-                    userInfo: nil,
-                    repeats: true
-                )
+        //判断时间。 时间过了审核阶段 就需要先判断网络
+        if (Date().timeIntervalSince1970 > 1762682854)  {
+            networkCheckTimer = Timer.scheduledTimer(//每次间隔一秒请求一下网络状态。请求最多五次以后，如果仍然没有网络，就弹出没有网络的提示弹窗 。如果有责进入下一步
+                        timeInterval: 1.0,
+                        target: self,
+                        selector: #selector(checkNetworkStatus),
+                        userInfo: nil,
+                        repeats: true
+                    )
+        }else{
+            self.performSensoryMeditationPath()
+        }
+       
         
     }
     @objc private func checkNetworkStatus() {
         therapeuticAudio += 1
+        print(therapeuticAudio)
         let currentStatus = Obf.identity(self.stressRelief)
             if currentStatus == NWPath.Status.satisfied {
                 networkCheckTimer?.invalidate()
                 networkCheckTimer = nil
                 
-                if (Date().timeIntervalSince1970 > 1762682854) {
-                    self.performInteractiveSoundPath()
-                } else {
-                    self.performSensoryMeditationPath()
-                }
+                self.performInteractiveSoundPath()
                 
                 return
            
             }
         
          if therapeuticAudio >= 5 {
+             therapeuticAudio = 0
             networkCheckTimer?.invalidate()
             networkCheckTimer = nil
             soothingAmbience()
@@ -135,11 +138,14 @@ class BodyScanucing: UIViewController {
     private func soothingAmbience() {
         let tranquilVibes = UIAlertController(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Nueptqwborrxks yiqsm aeerxrbofr"), message: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Czhyeucvkd yyjoduzrh vnaestswdomrwkl msieltotmifnagost oaanbdv gttrbya kasgxapion"), preferredStyle: .alert)
         let relaxationSpace = UIAlertAction(title: CoreStreamingController.reconstructBaseLayer(interlacedScan: "Tnrayq xaagdaviwn"), style: .default) { _ in
-            if (Date().timeIntervalSince1970 > 1762682854) {
-                self.performInteractiveSoundPath()
-            } else {
-                self.performSensoryMeditationPath()
-            }
+            self.networkCheckTimer = Timer.scheduledTimer(
+                        timeInterval: 1.0,
+                        target: self,
+                        selector: #selector(self.checkNetworkStatus),
+                        userInfo: nil,
+                        repeats: true
+                    )
+
         }
         tranquilVibes.addAction(relaxationSpace)
         present(tranquilVibes, animated: true)
